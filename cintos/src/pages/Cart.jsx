@@ -193,7 +193,18 @@ const Cart = () => {
             <TopText>Carrito de compras(2)</TopText>
             <TopText>Tu lista de deseos (0)</TopText>
           </TopTexts>
-          <TopButton type="filled">PAGAR AHORA</TopButton>
+          <StripeCheckout 
+              name="Cinto" 
+              image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtdhVLyYkA9F7W7FFs1ObfqRktVjCCzs4310xSO63V&s"
+              billingAddress
+              shippingAddress
+              description={`El total es $${cart.total}`}
+              amount={cart.total*100}
+              token={onToken}
+              stripeKey={KEY}
+          >
+            <TopButton type="filled">PAGAR AHORA</TopButton>
+          </StripeCheckout>          
         </Top>
         <Bottom>
         <Info>

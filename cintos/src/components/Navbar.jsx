@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 const Container = styled.div`
   height: 60px;
   ${mobile({ height: "50px" })}
+  position: sticky;
 `;
 
 const Wrapper = styled.div`
@@ -16,6 +17,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
   ${mobile({ padding: "10px 0px" })}
 `;
 
@@ -51,14 +53,15 @@ const Center = styled.div`
 
 const Logo = styled.h1`
   font-weight: bold;
-  ${mobile({ fontSize: "24px" })}
+  ${mobile({ fontSize: "20px" })}
+  text-decoration: none;
 `;
 const Right = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  ${mobile({ flex: 2, justifyContent: "center" })}
+  ${mobile({ flex: 2, justifyContent: "left" })}
 `;
 
 const MenuItem = styled.div`
@@ -67,6 +70,7 @@ const MenuItem = styled.div`
   margin-left: 25px;
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
+
 
 const Navbar = () => {
   const quantity = useSelector(state=>state.cart.quantity)
@@ -81,11 +85,17 @@ const Navbar = () => {
             </SearchContainer>
           </Left>
           <Center>
+            <Link to="/">
             <Logo>CINTO</Logo>
+            </Link>
           </Center>
           <Right>
+            <Link to="/register">
             <MenuItem>REGISTRATE</MenuItem>
+            </Link>
+            <Link to="/login">
             <MenuItem>LOG IN</MenuItem>
+            </Link>
             <Link to="/cart">
             <MenuItem>
               <Badge badgeContent={quantity} color="primary">
