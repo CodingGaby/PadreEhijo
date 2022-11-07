@@ -6,10 +6,12 @@ import { mobile } from "../responsive";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+import "./navbar.css"
+import Announcement from "./Announcement";
+
 const Container = styled.div`
   height: 60px;
   ${mobile({ height: "50px" })}
-  position: sticky;
 `;
 
 const Wrapper = styled.div`
@@ -75,7 +77,7 @@ const MenuItem = styled.div`
 const Navbar = () => {
   const quantity = useSelector(state=>state.cart.quantity)
   return (
-    <Container>
+    <Container className="navbar">
         <Wrapper>
           <Left>
             <Language>ESP</Language>
@@ -105,6 +107,7 @@ const Navbar = () => {
             </Link>
           </Right>
         </Wrapper>
+        <Announcement/>
     </Container>
   )
 }

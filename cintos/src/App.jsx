@@ -7,12 +7,14 @@ import Register from "./pages/Register";
 import { BrowserRouter as Router, Routes, Navigate, Route} from "react-router-dom";
 import Success from "./pages/Success";
 import { useSelector } from "react-redux";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser);
- 
+
   return (
     <Router>
+      <Navbar/>
       <Routes>
         <Route exact path="/" element={<Home/>}/>
         <Route exact path="/cart" element={<Cart/>}/>

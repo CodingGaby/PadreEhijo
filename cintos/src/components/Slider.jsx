@@ -1,5 +1,6 @@
 import { ArrowBackIosRounded, ArrowForwardIosRounded } from "@material-ui/icons";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components"
 import { sliderItems } from "../data";
 import { mobile } from "../responsive";
@@ -106,7 +107,10 @@ const Slider = () => {
                     <InfoContainer>
                         <Title>{item.title}</Title>
                         <Desc>{item.desc}</Desc>
+                        <Link to={`/products/${item.cat}`}>
                         <Button>COMPRA AHORA</Button>
+                        </Link>
+                        
                     </InfoContainer>
                 </Slide>
             ))}

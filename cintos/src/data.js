@@ -4,21 +4,24 @@ export const sliderItems = [
       img: "https://www.freepnglogos.com/uploads/belts-png/designer-belts-for-men-1.png",
       title: "VENTA DE OTOÑO",
       desc: "LO MEJOR EN CINTURONES! OBTEN 30% DE DESCUENTO EN NUESTROS NUEVOS PRODUCTOS.",
-      bg: "f5faf",
+      bg: "fdf3e5",
+      cat: "Otoño"
     },
     {
       id: 2,
       img: "https://www.freepnglogos.com/uploads/belts-png/belts-leather-belt-png-images-with-transparent-background-0.png",
-      title: "COLECCIÓN DE VERANO",
+      title: "PRODUCTOS NUEVOS",
       desc: "LO MEJOR EN CINTURONES! OBTEN 30% DE DESCUENTO EN NUESTROS NUEVOS PRODUCTOS.",
       bg: "fcf1ed",
+      cat: "Nuevo"
     },
     {
       id: 3,
       img: "https://www.freepnglogos.com/uploads/belts-png/belts-simple-26.png",
-      title: "OFERTAS POR APERTURA",
+      title: "PRODUCCIÓN ARTESANAL",
       desc: "LO MEJOR EN CINTURONES! OBTEN 30% DE DESCUENTO EN NUESTROS NUEVOS PRODUCTOS.",
       bg: "fbf0f4",
+      cat: "Artesanal"
     },
   ];
 
