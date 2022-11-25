@@ -1,7 +1,9 @@
 import axios from "axios";
 
 const BASE_URL = "https://cafcintos-production-dff0.up.railway.app/api/";
-const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNThkMjYyNTg4YjkyZjFjOGZjZTY3YyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2Njc2NTUyMiwiZXhwIjoxNjY3MDI0NzIyfQ.uj1WgDJjtMuNqZRF5yBARmF3iuDCJ6aKNJnHlaXl1Ik";
+const user = JSON.parse(localStorage.getItem("persist:root"))?.user;
+const currentUser = user && JSON.parse(user).currentUser;
+const TOKEN = currentUser?.accessToken;
 
 export const publicRequest = axios.create({
     baseURL: BASE_URL,

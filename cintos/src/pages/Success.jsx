@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router";
 import { userRequest } from "../requestMethods";
+import JSConfetti from 'js-confetti'
+import { Link } from "react-router-dom";
 
 const Success = () => {
   const location = useLocation();
@@ -29,6 +31,9 @@ const Success = () => {
     data && createOrder();
   }, [cart, data, currentUser]);
 
+  const jsConfetti = new JSConfetti()
+  jsConfetti.addConfetti()
+
   return (
     <div
       style={{
@@ -42,7 +47,9 @@ const Success = () => {
       {orderId
         ? `Order has been created successfully. Your order number is ${orderId}`
         : `Successfull. Your order is being prepared...`}
-      <button style={{ padding: 10, marginTop: 20 }}>Go to Homepage</button>
+      <Link to="/">
+        <button style={{ padding: 10, marginTop: 20, cursor: "pointer" }}>Go to Homepage</button>
+      </Link>
     </div>
   );
 };

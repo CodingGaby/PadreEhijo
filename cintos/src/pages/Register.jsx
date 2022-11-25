@@ -8,7 +8,7 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/392058/pexels-photo-392058.jpeg?auto=compress&cs=tinysrgb&w=600")
+    url("https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/register.webp?alt=media&token=789348ee-392e-48fc-8899-24f118d10800")
       center;
   background-size: cover;
   display: flex;
