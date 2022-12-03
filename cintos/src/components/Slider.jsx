@@ -74,13 +74,13 @@ const Desc = styled.p`
 `;
 
 const Button = styled.button`
-    padding: 10px;
-    font-size: 20px;
-    background-color: #D1A681;
-    color: white;
-    cursor: pointer;
-    border-color: #06060641;
-    border-radius: 5px;
+  padding: 10px;
+  font-size: 20px;
+  background-color: #D1A681;
+  color: white;
+  cursor: pointer;
+  border-color: #06060641;
+  border-radius: 5px;
 `;
 
 const Slider = () => {
@@ -107,33 +107,40 @@ const Slider = () => {
                     <InfoContainer>
                         <Title>{item.title}</Title>
                         <Desc>{item.desc}</Desc>
-                        <Link to={`/products/${item.cat}`}>
+                        <Link to={`/products/${item.cat}`} style={{ position:"sticky", left: 950}}>
                         <Button>COMPRA AHORA</Button>
                         </Link>
-                        
                     </InfoContainer>
                 </Slide>
             ))}
-            <Slide bg="fcf1ed">
-                <ImgContainer>
-                    <Image src="https://o.remove.bg/downloads/373ddaf5-5cd6-49ff-b187-33214b6241e1/image-removebg-preview.png"/>
-                </ImgContainer>
-                <InfoContainer>
-                    <Title>Regala Algo</Title>
-                    <Desc>La Mejor Calidad En Cinturones</Desc>
-                    <Button>COMPRA AHORA</Button>
-                </InfoContainer>
-            </Slide>
-            <Slide bg="fbf0f4">
-                <ImgContainer>
-                    <Image src="https://o.remove.bg/downloads/373ddaf5-5cd6-49ff-b187-33214b6241e1/image-removebg-preview.png"/>
-                </ImgContainer>
-                <InfoContainer>
-                    <Title>Venta de Otoño</Title>
-                    <Desc>La Mejor Calidad En Cinturones</Desc>
-                    <Button>COMPRA AHORA</Button>
-                </InfoContainer>
-            </Slide>
+            {sliderItems.map((item) => (
+                <Slide bg={item.bg} key={item.id}>
+                    <ImgContainer>
+                        <Image src={item.img}/>
+                    </ImgContainer>
+                    <InfoContainer>
+                        <Title>{item.title}</Title>
+                        <Desc>{item.desc}</Desc>
+                        <Link to={`/products/${item.cat}`} style={{ position:"sticky", left: 950}}>
+                        <Button>COMPRA AHORA</Button>
+                        </Link>
+                    </InfoContainer>
+                </Slide>
+            ))}
+            {sliderItems.map((item) => (
+                <Slide bg={item.bg} key={item.id}>
+                    <ImgContainer>
+                        <Image src={item.img}/>
+                    </ImgContainer>
+                    <InfoContainer>
+                        <Title>{item.title}</Title>
+                        <Desc>{item.desc}</Desc>
+                        <Link to={`/products/${item.cat}`} style={{ position:"sticky", left: 950}}>
+                        <Button>COMPRA AHORA</Button>
+                        </Link>
+                    </InfoContainer>
+                </Slide>
+            ))}
         </Wrapper>
         <Arrow direction="right" onClick={()=>handleClick("right")}>
            <ArrowForwardIosRounded/>

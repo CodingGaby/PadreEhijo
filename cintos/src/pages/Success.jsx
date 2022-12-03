@@ -1,39 +1,10 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useLocation } from "react-router";
-import { userRequest } from "../requestMethods";
-import JSConfetti from 'js-confetti'
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 const Success = () => {
-  const location = useLocation();
-  //in Cart.jsx I sent data and cart. Please check that page for the changes.(in video it's only data)
-  const data = location.state.stripeData;
-  const cart = location.state.cart;
-  const currentUser = useSelector((state) => state.user.currentUser);
-  const [orderId, setOrderId] = useState(null);
+  const location = useLocation()
 
-  useEffect(() => {
-    const createOrder = async () => {
-      try {
-        const res = await userRequest.post("/orders", {
-          userId: currentUser._id,
-          products: cart.products.map((item) => ({
-            productId: item._id,
-            quantity: item._quantity,
-          })),
-          amount: cart.total,
-          address: data.billing_details.address,
-        });
-        setOrderId(res.data._id);
-      } catch {}
-    };
-    data && createOrder();
-  }, [cart, data, currentUser]);
-
-  const jsConfetti = new JSConfetti()
-  jsConfetti.addConfetti()
-
+  console.log(location)
   return (
     <div
       style={{
@@ -44,14 +15,14 @@ const Success = () => {
         justifyContent: "center",
       }}
     >
-      {orderId
-        ? `Order has been created successfully. Your order number is ${orderId}`
-        : `Successfull. Your order is being prepared...`}
+        Tu orden ha sido creada. Tu número de orden es: ch_3LxhZsEpsYhIlqpf0YUOVpuG
+         "Tu orden esta siendo preparada..."
       <Link to="/">
-        <button style={{ padding: 10, marginTop: 20, cursor: "pointer" }}>Go to Homepage</button>
+        <button style={{ padding: 10, marginTop: 20, cursor: 'pointer'}}>Regresar a la pagina</button>
       </Link>
+      
     </div>
   );
 };
 
-export default Success;
+export default Success

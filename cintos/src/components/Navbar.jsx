@@ -1,5 +1,5 @@
 import { Badge } from "@material-ui/core";
-import { Search, ShoppingBasketOutlined } from "@material-ui/icons";
+import { NoteAdd, Search, ShoppingBasketOutlined } from "@material-ui/icons";
 import React from 'react';
 import styled from 'styled-components';
 import { mobile } from "../responsive";
@@ -58,6 +58,12 @@ const Logo = styled.h1`
   ${mobile({ fontSize: "20px" })}
   text-decoration: none;
 `;
+
+const ImgLogo = styled.img`
+  height: 35px;
+  margin-left: 25px;
+`;
+
 const Right = styled.div`
   flex: 1;
   display: flex;
@@ -73,22 +79,23 @@ const MenuItem = styled.div`
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
-
 const Navbar = () => {
   const quantity = useSelector(state=>state.cart.quantity)
   return (
     <Container className="navbar">
         <Wrapper>
           <Left>
-            <Language>ESP</Language>
-            <SearchContainer>
-              <Input/>
-              <Search style={{color:"gray", fontSize:16}}/>
-            </SearchContainer>
+            <Link to="/">
+              <ImgLogo style={{cursor: "pointer"}} src="https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/IMG-0347_adobe_express.svg?alt=media&token=d0c11685-6ed6-4a60-a75c-935325fe60c4"/>
+            </Link>
+            <Language style={{marginLeft:"25px"}}>ESP</Language>
+            <Search style={{fontSize:24, border: "0.5px", display: "flex",alignItems:"center", marginLeft: "25px", padding: "5px", cursor: "not-allowed",}}/>
+           
           </Left>
           <Center>
+            
             <Link to="/">
-            <Logo>CINTO</Logo>
+            <Logo>PadreHijo</Logo>
             </Link>
           </Center>
           <Right>

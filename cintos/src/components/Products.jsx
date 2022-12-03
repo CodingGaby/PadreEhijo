@@ -20,8 +20,8 @@ const Products = ({cat,filters,sort}) => {
       try{
         const res = await axios.get(
           cat 
-            ? `https://cafcintos-production-dff0.up.railway.app/api/products?category=${cat}`
-            : "https://cafcintos-production-dff0.up.railway.app/api/products"
+            ? `https://cafcintos-production.up.railway.app/api/products?category=${cat}`
+            : "https://cafcintos-production.up.railway.app/api/products"
           );
         setProducts(res.data);
       } catch (err) {}

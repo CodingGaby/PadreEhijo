@@ -20,6 +20,7 @@ const Wrapper = styled.div`
 
 const ImgContainer = styled.div`
   flex: 1;
+  border: 1px solid lightgray;
 `;
 
 const Image = styled.img`
@@ -168,7 +169,7 @@ const Product = () => {
           <Price>$ {product.price}</Price>
           <FilterContainer>
             <Filter>
-              <FilterTitle>Color</FilterTitle>
+              <FilterTitle style={{ marginRight: "5px" }}>Color:</FilterTitle>
               {product.color?.map((c) => (
                 <FilterColor color={c} key={c} onClick={() => setColor(c)} />
               ))}
