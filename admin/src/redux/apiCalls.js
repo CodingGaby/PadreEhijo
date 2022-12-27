@@ -22,14 +22,7 @@ import {
   deleteUserSuccess,
   deleteUserFailure,
 } from "./usersRedux";
-import {
-  getOrderStart,
-  getOrderSuccess,
-  getOrderFailure,
-  deleteOrderStart,
-  deleteOrderSuccess,
-  deleteOrderFailure,
-} from "./ordersRedux";
+import { getOrderFailure, getOrderStart, getOrderSuccess } from "./orderRedux";
 
 export const login = async (dispatch, user) => {
   dispatch(loginStart());

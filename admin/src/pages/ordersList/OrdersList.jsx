@@ -28,8 +28,8 @@ export default function ProductList() {
     },
     { 
       field: "createdAt", 
-      headerName: "Creado en:", 
-      width: 200 ,
+      headerName: "Creado en", 
+      width: 136.7,
       renderCell: (params) => {
         return (
           <div className="userListUser">
@@ -41,11 +41,11 @@ export default function ProductList() {
     {
       field: "amount",
       headerName: "Amount",
-      width: 160,
+      width: 123.8,
     },
     {
       field: "status",
-      headerName: "status",
+      headerName: "Status",
       width: 160,
     },
     {
@@ -55,7 +55,7 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/product/" + params.row._id}>
+            <Link to={"/order/" + params.row._id}>
               <button className="productListEdit">Edit</button>
             </Link>
             <DeleteOutline
