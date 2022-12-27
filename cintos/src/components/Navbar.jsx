@@ -31,7 +31,6 @@ const Left = styled.div`
 
 const Language = styled.span`
   font-size: 14px;
-  cursor: pointer;
   ${mobile({ display: "none" })}
 `;
 
@@ -69,6 +68,9 @@ const MenuItem = styled.div`
   cursor: pointer;
   margin-left: 25px;
   ${mobile({ fontSize: "11px" , marginLeft: "8px"})}
+  &:hover{
+    text-decoration: underline;
+  }
 `;
 
 const Navbar = () => {
@@ -84,17 +86,17 @@ const Navbar = () => {
             <SearchIcon>
               <Search style={{fontSize:24, border: "0.5px", display: "flex",alignItems:"center", marginLeft: "25px", padding: "5px", cursor: "not-allowed",}}/>
             </SearchIcon>
-
           </Left>
           <Center>
-           
             <Link to="/">
             <Logo>PadreeHijo</Logo>
             </Link>
           </Center>
           <Right>
             <Link to="/register">
-            <MenuItem>REGISTRATE</MenuItem>
+            <MenuItem>
+              REGISTRATE
+            </MenuItem>
             </Link>
             <Link to="/login">
             <MenuItem>LOG IN</MenuItem>

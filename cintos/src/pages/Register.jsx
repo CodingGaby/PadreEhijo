@@ -1,5 +1,10 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import {mobile} from "../responsive";
+import { useDispatch } from "react-redux";
+import { addUser } from "../redux/apiCalls";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100vw;
@@ -70,31 +75,61 @@ const Checkbox = styled.input`
   position: relative;
   top: -1px;
   *overflow: hidden;
-
+  cursor: pointer;
 `;
 
-const Register = () => {
+const Linky = styled.a`
+  text-align: center;
+  text-align: center;
+  font-size: 15px;
+  text-decoration: underline;
+  cursor: pointer;
+  display: block;
+  margin: 2px auto;
+  width: 40%;
+  border: none;
+`;
+
+export default function Register() {
+  const [inputs, setInputs] = useState({});
+  const dispatch = useDispatch();
+  const Navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setInputs((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
+  
+  const handleClick = (e) => {
+    e.preventDefault();
+    const user = { ...inputs };
+    addUser(user, dispatch);
+    Navigate('/login');
+  };
+
   return (
     <Container>
       <Wrapper>
         <Title>CREA UNA CUENTA</Title>
         <Form>
-          <Input placeholder="Nombre" />
+          <Input placeholder="Nombre"/>
           <Input placeholder="Apellido" />
-          <Input placeholder="Nombre de Usuario" />
-          <Input placeholder="Email" />
-          <Input placeholder="Contraseña" type="password"/>
-          <Input placeholder="Confirmar contraseña" type="password"/>
+          <Input placeholder="Nombre de Usuario" name="username" type="text" onChange={handleChange}/>
+          <Input placeholder="Email" name="email" type="email" onChange={handleChange}/>
+          <Input placeholder="Contraseña" name="password" type="new-password" onChange={handleChange}/>
+          <Input placeholder="Confirmar contraseña" type="new-password"/>
           <Agreement>
             Al crear una cuenta, doy mi consentimiento para el procesamiento de mis datos personales.
             datos de acuerdo con la <b>Politica de Privacidad</b>
             <Checkbox type="checkbox"/>
           </Agreement>
-          <Button>CREAR</Button>
+          <Button onClick={handleClick}>CREAR</Button>
         </Form>
+        <Link to="/login">
+          <Linky>Inicia Sesión</Linky>
+        </Link>
       </Wrapper>
     </Container>
   );
 };
-
-export default Register;

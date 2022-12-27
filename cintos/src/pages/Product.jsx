@@ -71,8 +71,9 @@ const FilterTitle = styled.span`
 const FilterColor = styled.div`
   width: 20px;
   height: 20px;
-  border-radius: 50%;
-  border-color: black;
+  margin: 0;
+  border:solid 1.5px black;
+  border-radius: 50%; 
   background-color: ${(props) => props.color};
   margin: 0px 5px;
   cursor: pointer;

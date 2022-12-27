@@ -162,11 +162,14 @@ const Button = styled.button`
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
+  const quantity = useSelector(state=>state.cart.quantity)
   const navigate = useNavigate();
 
   const onToken = (token) => {
     setStripeToken(token);
   };
+
+  console.log(stripeToken);
 
   useEffect(() => {
     const makeRequest = async () => {
@@ -175,9 +178,7 @@ const Cart = () => {
           tokenId: stripeToken.id,
           amount: cart.total * 100,
         });
-        navigate("/success", {
-          stripeData: res.data,
-          products: cart, });
+        navigate("/success", { state: { stripeData: res.data, products: cart} });
       } catch {}
     };
     stripeToken && cart.total >= 1 && makeRequest();
@@ -191,11 +192,11 @@ const Cart = () => {
           <TopButton>CONTINUAR COMPRANDO</TopButton>
           </Link>
           <TopTexts>
-            <TopText>Carrito de compras(2)</TopText>
+            <TopText>Carrito de compras({quantity})</TopText>
             <TopText>Tu lista de deseos (0)</TopText>
           </TopTexts>
           <StripeCheckout 
-              name="Cinto" 
+              name="Padre e Hijo" 
               image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtdhVLyYkA9F7W7FFs1ObfqRktVjCCzs4310xSO63V&s"
               billingAddress
               shippingAddress
@@ -260,7 +261,7 @@ const Cart = () => {
             </SummaryItem>
             <StripeCheckout 
               name="Cinto" 
-              image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtdhVLyYkA9F7W7FFs1ObfqRktVjCCzs4310xSO63V&s"
+              image="https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/IMG-0347_adobe_express.svg?alt=media&token=d0c11685-6ed6-4a60-a75c-935325fe60c4"
               billingAddress
               shippingAddress
               description={`El total es $${cart.total}`}

@@ -5,7 +5,8 @@ import Home from "./pages/home/Home";
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  useHistory
 } from "react-router-dom";
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
@@ -14,17 +15,19 @@ import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
+import OrdersList from "./pages/ordersList/OrdersList"
 import { useSelector } from "react-redux";
 
 function App() {
-  const admin = useSelector((state) => state.user.currentUser.isAdmin);
+  const user = useSelector((state) => state.user.currentUser);
+  const History = useHistory();
+
   return (
     <Router>
       <Switch>
         <Route path="/login">
           <Login />
         </Route>
-        {admin && (
           <>
             <Topbar />
             <div className="container">
@@ -44,6 +47,9 @@ function App() {
               <Route path="/products">
                 <ProductList />
               </Route>
+              <Route path="/orders">
+                <OrdersList />
+              </Route>
               <Route path="/product/:productId">
                 <Product />
               </Route>
@@ -52,7 +58,6 @@ function App() {
               </Route>
             </div>
           </>
-        )}
       </Switch>
     </Router>
   );

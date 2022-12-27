@@ -6,10 +6,19 @@ import {
   PhoneAndroid,
   Publish,
 } from "@material-ui/icons";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 import "./user.css";
+import {format} from "timeago.js"
 
 export default function User() {
+  const location = useLocation();
+  const userId = location.pathname.split("/")[2];
+ 
+  const user = useSelector((state) =>
+    state.users.usersList.find((users) => users._id === userId)
+  )
+
   return (
     <div className="user">
       <div className="userTitleContainer">
@@ -22,12 +31,15 @@ export default function User() {
         <div className="userShow">
           <div className="userShowTop">
             <img
-              src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+              src={
+                user.img ||
+                "https://crowd-literature.eu/wp-content/uploads/2015/01/no-avatar.gif"
+              }
               alt=""
               className="userShowImg"
             />
             <div className="userShowTopTitle">
-              <span className="userShowUsername">Anna Becker</span>
+              <span className="userShowUsername">{user.username}</span>
               <span className="userShowUserTitle">Software Engineer</span>
             </div>
           </div>
@@ -35,11 +47,15 @@ export default function User() {
             <span className="userShowTitle">Account Details</span>
             <div className="userShowInfo">
               <PermIdentity className="userShowIcon" />
-              <span className="userShowInfoTitle">annabeck99</span>
+              <span className="userShowInfoTitle">{user.username}</span>
             </div>
             <div className="userShowInfo">
               <CalendarToday className="userShowIcon" />
-              <span className="userShowInfoTitle">10.12.1999</span>
+              <span className="userShowInfoTitle">{format(user.createdAt)}</span>
+            </div>
+            <div className="userShowInfo">
+              <LocationSearching className="userShowIcon" />
+              <span className="userShowInfoTitle">{user._id}</span>
             </div>
             <span className="userShowTitle">Contact Details</span>
             <div className="userShowInfo">
@@ -48,11 +64,7 @@ export default function User() {
             </div>
             <div className="userShowInfo">
               <MailOutline className="userShowIcon" />
-              <span className="userShowInfoTitle">annabeck99@gmail.com</span>
-            </div>
-            <div className="userShowInfo">
-              <LocationSearching className="userShowIcon" />
-              <span className="userShowInfoTitle">New York | USA</span>
+              <span className="userShowInfoTitle">{user.email}</span>
             </div>
           </div>
         </div>

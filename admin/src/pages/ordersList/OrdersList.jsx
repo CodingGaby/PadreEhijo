@@ -1,42 +1,51 @@
-import "./productList.css";
+import "./ordersList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteProduct, getProducts } from "../../redux/apiCalls";
+import { getOrders } from "../../redux/apiCalls";
+import {format} from "timeago.js"
 
 export default function ProductList() {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.product.products);
+  const orders = useSelector((state) => state.order.orders);
 
   useEffect(() => {
-    getProducts(dispatch);
+    getOrders(dispatch);
   }, [dispatch]);
 
-  const handleDelete = (id) => {
+  /*const handleDelete = (id) => {
     deleteProduct(id, dispatch);
-  };
+  };*/
 
   const columns = [
     { field: "_id", headerName: "ID", width: 220 },
     {
-      field: "product",
-      headerName: "Product",
-      width: 200,
+      field: "userId",
+      headerName: "ID Usuario",
+      width: 220,
+    },
+    { 
+      field: "createdAt", 
+      headerName: "Creado en:", 
+      width: 200 ,
       renderCell: (params) => {
         return (
-          <div className="productListItem">
-            <img className="productListImg" src={params.row.img} alt="" />
-            {params.row.title}
+          <div className="userListUser">
+            {format(params.row.createdAt)}
           </div>
         );
       },
     },
-    { field: "inStock", headerName: "Stock", width: 200 },
     {
-      field: "price",
-      headerName: "Price",
+      field: "amount",
+      headerName: "Amount",
+      width: 160,
+    },
+    {
+      field: "status",
+      headerName: "status",
       width: 160,
     },
     {
@@ -51,7 +60,6 @@ export default function ProductList() {
             </Link>
             <DeleteOutline
               className="productListDelete"
-              onClick={() => handleDelete(params.row._id)}
             />
           </>
         );
@@ -68,7 +76,7 @@ export default function ProductList() {
         </Link>
       </div>
       <DataGrid
-        rows={products}
+        rows={orders}
         disableSelectionOnClick
         columns={columns}
         getRowId={(row) => row._id}
