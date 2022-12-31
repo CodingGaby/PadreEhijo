@@ -1,5 +1,4 @@
-import { Add, Remove } from "@material-ui/icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
@@ -8,6 +7,7 @@ import { useEffect, useState } from "react";
 import { userRequest } from "../requestMethods";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import { deleteCart } from "../redux/cartRedux";
 
 const KEY = process.env.REACT_APP_STRIPE;
 
@@ -102,17 +102,7 @@ const PriceDetail = styled.div`
   justify-content: center;
 `;
 
-const ProductAmountContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-`;
-
-const ProductAmount = styled.div`
-  font-size: 24px;
-  margin: 5px;
-  ${mobile({ margin: "5px 15px" })}
-`;
+const ProductAmount = styled.div``;
 
 const ProductPrice = styled.div`
   font-size: 30px;
@@ -164,12 +154,17 @@ const Cart = () => {
   const [stripeToken, setStripeToken] = useState(null);
   const quantity = useSelector(state=>state.cart.quantity)
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onToken = (token) => {
     setStripeToken(token);
   };
 
-  console.log(stripeToken);
+  const handleClick = () => {
+    dispatch(
+      deleteCart({})
+    );
+  };
 
   useEffect(() => {
     const makeRequest = async () => {
@@ -195,18 +190,7 @@ const Cart = () => {
             <TopText>Carrito de compras({quantity})</TopText>
             <TopText>Tu lista de deseos (0)</TopText>
           </TopTexts>
-          <StripeCheckout 
-              name="Padre e Hijo" 
-              image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtdhVLyYkA9F7W7FFs1ObfqRktVjCCzs4310xSO63V&s"
-              billingAddress
-              shippingAddress
-              description={`El total es $${cart.total}`}
-              amount={cart.total*100}
-              token={onToken}
-              stripeKey={KEY}
-          >
-            <TopButton type="filled">PAGAR AHORA</TopButton>
-          </StripeCheckout>          
+          <TopButton onClick={handleClick} type="filled" >BORRAR CARRITO</TopButton>          
         </Top>
         <Bottom>
         <Info>
@@ -225,14 +209,10 @@ const Cart = () => {
                     <ProductSize>
                       <b>Size:</b> {product.size}
                     </ProductSize>
+                    <ProductAmount><b>Quantity:</b> {product.quantity}</ProductAmount>
                   </Details>
                 </ProductDetail>
                 <PriceDetail>
-                  <ProductAmountContainer>
-                    <Add />
-                    <ProductAmount>{product.quantity}</ProductAmount>
-                    <Remove />
-                  </ProductAmountContainer>
                   <ProductPrice>
                     $ {product.price * product.quantity}
                   </ProductPrice>

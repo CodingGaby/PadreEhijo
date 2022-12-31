@@ -23,7 +23,7 @@ export default function Sidebar() {
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
             <li className="sidebarListItem">
-              <NavLink to="/" exact className="link" activeClassName="active"><LineStyle className="sidebarIcon"/>Home</NavLink>
+              <NavLink to="/dashboard" exact className="link" activeClassName="active"><LineStyle className="sidebarIcon"/>Home</NavLink>
             </li>
             <li exact className="notlink" >
               <Timeline className="sidebarIcon" />

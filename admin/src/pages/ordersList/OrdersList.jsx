@@ -18,18 +18,16 @@ export default function ProductList() {
   /*const handleDelete = (id) => {
     deleteProduct(id, dispatch);
   };*/
-
+  
+  const Button = ({ type }) => {
+    return <button className={"widgetLgButton " + type}>{type}</button>;
+  };
   const columns = [
     { field: "_id", headerName: "ID", width: 220 },
-    {
-      field: "userId",
-      headerName: "ID Usuario",
-      width: 220,
-    },
     { 
       field: "createdAt", 
       headerName: "Creado en", 
-      width: 136.7,
+      width: 220,
       renderCell: (params) => {
         return (
           <div className="userListUser">
@@ -41,17 +39,26 @@ export default function ProductList() {
     {
       field: "amount",
       headerName: "Amount",
-      width: 123.8,
+      width: 160,
     },
     {
       field: "status",
       headerName: "Status",
       width: 160,
+      renderCell: (params) => {
+        return (
+          <>
+            <td className="widgetLgStatus">
+              <Button type={params.row.status} />
+            </td>
+          </>
+        );
+      },
     },
     {
       field: "action",
       headerName: "Action",
-      width: 150,
+      width: 180,
       renderCell: (params) => {
         return (
           <>

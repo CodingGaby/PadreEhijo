@@ -41,7 +41,7 @@ const Center = styled.div`
 
 const Logo = styled.h1`
   font-weight: bold;
-  ${mobile({ fontSize: "20px", marginRight: "20px" })}
+  ${mobile({ fontSize: "20px"})}
   text-decoration: none;
 `;
 
@@ -60,14 +60,14 @@ const Right = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  ${mobile({ flex: 2, justifyContent: "left"})}
+  ${mobile({ flex: 2, justifyContent: "right"})}
 `;
 
 const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
-  ${mobile({ fontSize: "11px" , marginLeft: "8px"})}
+  ${mobile({ fontSize: "15px", marginRight: "10px", marginLeft: "2px"})}
   &:hover{
     text-decoration: underline;
   }
@@ -75,6 +75,8 @@ const MenuItem = styled.div`
 
 const Navbar = () => {
   const quantity = useSelector(state=>state.cart.quantity)
+  const user = useSelector((state) => state.user.currentUser);
+
   return (
     <Container className="navbar">
         <Wrapper>
@@ -93,14 +95,31 @@ const Navbar = () => {
             </Link>
           </Center>
           <Right>
-            <Link to="/register">
-            <MenuItem>
-              REGISTRATE
-            </MenuItem>
-            </Link>
-            <Link to="/login">
-            <MenuItem>LOG IN</MenuItem>
-            </Link>
+            {user ? (
+              <MenuItem style={{fontSize: "15px", display: "flex",
+              alignItems: "center",}} >
+                <img
+                  src={
+                    user.img || "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/Sample_User_Icon.png?alt=media&token=f9e7d38f-54b2-489b-9b3b-380930590f9a"
+                  }
+                  alt=""
+                  style={{
+                    width: "25px",
+                    height: "25px",
+                    borderRadius: "50%",
+                    marginRight: "5px",
+                  }}
+                />
+                 {user.username}
+              </MenuItem>
+            ) : (
+              <Link to="/login">
+                <MenuItem>
+                  LOG IN
+                </MenuItem>
+              </Link>
+            )
+            }
             <Link to="/cart">
             <MenuItem>
               <Badge badgeContent={quantity} color="primary">

@@ -1,5 +1,5 @@
 {
-  "name": "lamaadmin",
+  "name": "padreehijjoadmin",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,6 +19,7 @@
     "react-scripts": "4.0.3",
     "recharts": "^2.0.9",
     "redux-persist": "^6.0.0",
+    "styled-components": "^5.3.6",
     "timeago.js": "^4.0.2",
     "web-vitals": "^1.0.1"
   },

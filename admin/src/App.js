@@ -20,19 +20,19 @@ import { useSelector } from "react-redux";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
-  const History = useHistory();
+  const Navigate = useHistory();
 
   return (
     <Router>
       <Switch>
-        <Route path="/login">
-          <Login />
+        <Route exact path="/">
+          <Login element={user ? <Navigate to="/" /> : <Login />} />
         </Route>
           <>
             <Topbar />
             <div className="container">
               <Sidebar />
-              <Route exact path="/">
+              <Route path="/dashboard">
                 <Home />
               </Route>
               <Route path="/users">
