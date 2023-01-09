@@ -1,31 +1,31 @@
 export const sliderItems = [
     {
       id: 1,
-      img: "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/cinto%20slide%202.png?alt=media&token=5ea0532d-9788-4d25-9351-ff0a95fcc392",
+      img: "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/1671588373290Mi%20proyecto.png?alt=media&token=84642273-cfbf-45e2-be4f-98327ad6a487",
       title: "VENTA DE OTOÑO",
       desc: "LO MEJOR EN CINTURONES! OBTEN 30% DE DESCUENTO EN NUESTROS NUEVOS PRODUCTOS.",
-      bg: "fdf3e5",
+      bg: "dbc8a9",
       cat: "Otoño"
     },
     {
       id: 2,
-      img: "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/cinto%20slide%201.png?alt=media&token=d977a9b8-1146-4951-aea2-d8a368efb747",
+      img: "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/1672096618474My%20project-1%20(1).png?alt=media&token=765c38cc-a59c-4792-93ed-a9581f851df1",
       title: "PRODUCTOS NUEVOS",
       desc: "LO MEJOR EN CINTURONES! OBTEN 30% DE DESCUENTO EN NUESTROS NUEVOS PRODUCTOS.",
-      bg: "fcf1ed",
+      bg: "c9a677",
       cat: "Nuevo"
     },
     {
       id: 3,
-      img: "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/cinto%20slide%203.png?alt=media&token=545c9b23-7046-490a-80cc-2a07253e69cf",
+      img: "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/1672097807838My%20project-1%20(2).png?alt=media&token=b4c7e883-37ad-4236-a4f1-7ba7dfb61dca",
       title: "PRODUCCIÓN ARTESANAL",
       desc: "LO MEJOR EN CINTURONES! OBTEN 30% DE DESCUENTO EN NUESTROS NUEVOS PRODUCTOS.",
-      bg: "fbf0f4",
+      bg: "efd7cc",
       cat: "Artesanal"
     },
   ];
 
-  export const categories = [
+export const categories = [
     {
       id: 1,
       img: "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/cat1.webp?alt=media&token=b9cbe026-abf4-4f9a-bca2-d2c884978820",
@@ -44,39 +44,10 @@ export const sliderItems = [
       title: "NUEVA LINEA",
       cat: "Nuevo"
     },
+    {
+      id: 4,
+      img: "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/pexels-cottonbro-studio-6661906.jpg?alt=media&token=7141130f-6f1c-486d-b9f2-a192bc341b77",
+      title: "INVIERNO",
+      cat: "Invierno"
+    },
   ];
-
-  export const popularProducts = [
-    {
-      id:1,
-      img:"https://www.freepnglogos.com/uploads/belts-png/belts-simple-26.png",
-    },
-    {
-      id:2,
-      img:"https://www.freepnglogos.com/uploads/belts-png/belts-leather-belt-png-images-with-transparent-background-7.png",
-    },
-    {
-      id:3,
-      img:"https://www.freepnglogos.com/uploads/belts-png/belts-simple-26.png",
-    },
-    {
-      id:4,
-      img:"https://www.freepnglogos.com/uploads/belts-png/belts-leather-with-transparent-background-10.png",
-    },
-    {
-      id:5,
-      img:"https://www.freepnglogos.com/uploads/belts-png/designer-belts-for-men-1.png",
-    },
-    {
-      id:6,
-      img:"https://www.freepnglogos.com/uploads/belts-png/belts-leather-with-transparent-background-10.png",
-    },
-    {
-      id:7,
-      img:"https://www.freepnglogos.com/uploads/belts-png/belts-leather-belt-png-images-with-transparent-background-0.png",
-    },
-    {
-      id:8,
-      img:"https://www.freepnglogos.com/uploads/belts-png/belts-leather-belt-png-images-with-transparent-background-7.png",
-    },
-  ]

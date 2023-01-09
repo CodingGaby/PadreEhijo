@@ -1,12 +1,14 @@
 import { Badge } from "@material-ui/core";
-import { Search, ShoppingBasketOutlined } from "@material-ui/icons";
+import { ExpandMoreRounded, Search, ShoppingBasketOutlined } from "@material-ui/icons";
 import React from 'react';
 import styled from 'styled-components';
 import { mobile } from "../responsive";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./navbar.css"
 import Announcement from "./Announcement";
+import { logOut } from "../redux/userRedux";
+import { deleteCart } from "../redux/cartRedux";
 
 const Container = styled.div`
   height: 60px;
@@ -76,6 +78,16 @@ const MenuItem = styled.div`
 const Navbar = () => {
   const quantity = useSelector(state=>state.cart.quantity)
   const user = useSelector((state) => state.user.currentUser);
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    dispatch(
+      logOut({})
+    );
+    dispatch(
+      deleteCart({})
+    );
+  };
 
   return (
     <Container className="navbar">
@@ -96,8 +108,7 @@ const Navbar = () => {
           </Center>
           <Right>
             {user ? (
-              <MenuItem style={{fontSize: "15px", display: "flex",
-              alignItems: "center",}} >
+              <MenuItem onClick={handleClick} style={{fontSize: "15px", display: "flex", alignItems: "center",}}>
                 <img
                   src={
                     user.img || "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/Sample_User_Icon.png?alt=media&token=f9e7d38f-54b2-489b-9b3b-380930590f9a"
@@ -108,9 +119,8 @@ const Navbar = () => {
                     height: "25px",
                     borderRadius: "50%",
                     marginRight: "5px",
-                  }}
-                />
-                 {user.username}
+                  }}/>
+                 {user.username} <ExpandMoreRounded/>
               </MenuItem>
             ) : (
               <Link to="/login">

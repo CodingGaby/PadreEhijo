@@ -4,6 +4,7 @@ import { useLocation } from "react-router";
 import { userRequest } from "../requestMethods";
 import { Link } from "react-router-dom";
 import { deleteCart } from "../redux/cartRedux";
+import JSConfetti from 'js-confetti'
 
 const Success = () => {
   const location = useLocation();
@@ -12,6 +13,9 @@ const Success = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
   const [orderId, setOrderId] = useState(null);
   const dispatch = useDispatch();
+
+  const jsConfetti = new JSConfetti()
+  jsConfetti.addConfetti()
 
   const handleClick = () => {
     dispatch(
@@ -51,7 +55,7 @@ const Success = () => {
         ? `Tu orden ha sido creada correctamente. Tu número de orden es:  ${orderId}`
         : `Correcto, tu orden esta siendo preparada...`}
       <Link to="/">
-        <button onClick={handleClick} style={{ padding: 10, marginTop: 20 }}>Regresar al Inicio</button>
+        <button onClick={handleClick} style={{ padding: 10, marginTop: 20, cursor: "pointer"}}>Regresar al Inicio</button>
       </Link>
     </div>
   );

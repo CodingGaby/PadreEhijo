@@ -41,6 +41,9 @@ const TopButton = styled.button`
 `;
 
 const TopTexts = styled.div`
+  padding: 10px;
+  cursor: pointer;
+  border: 2px solid #000000;
   ${mobile({ display: "none" })}
 `;
 const TopText = styled.span`
@@ -89,6 +92,7 @@ const ProductColor = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 50%;
+  border: 2px solid #000000;
   background-color: ${(props) => props.color};
 `;
 
@@ -152,7 +156,7 @@ const Button = styled.button`
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
-  const quantity = useSelector(state=>state.cart.quantity)
+  const quantity = useSelector(state => state.cart.quantity)
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -187,8 +191,9 @@ const Cart = () => {
           <TopButton>CONTINUAR COMPRANDO</TopButton>
           </Link>
           <TopTexts>
-            <TopText>Carrito de compras({quantity})</TopText>
-            <TopText>Tu lista de deseos (0)</TopText>
+            <Link to="/cart">
+              <TopText>Carrito de compras({quantity})</TopText>
+            </Link>
           </TopTexts>
           <TopButton onClick={handleClick} type="filled" >BORRAR CARRITO</TopButton>          
         </Top>

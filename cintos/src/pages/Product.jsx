@@ -71,8 +71,8 @@ const FilterTitle = styled.span`
 const FilterColor = styled.div`
   width: 20px;
   height: 20px;
-  margin: 0;
-  border:solid 1.5px black;
+  margin: 0px;
+  border: 2px solid #000000;
   border-radius: 50%; 
   background-color: ${(props) => props.color};
   margin: 0px 5px;
@@ -172,7 +172,7 @@ const Product = () => {
             <Filter>
               <FilterTitle style={{ marginRight: "5px" }}>Color:</FilterTitle>
               {product.color?.map((c) => (
-                <FilterColor color={c} key={c} onClick={() => setColor(c)} />
+                <FilterColor color={`${c}`} key={c} onClick={() => setColor(c)} />
               ))}
             </Filter>
             <Filter>
