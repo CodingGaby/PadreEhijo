@@ -77,10 +77,7 @@ export default function ProductList() {
   return (
     <div className="productList">
       <div className="productTitleContainer">
-        <h1 className="productTitle">Productos</h1>
-        <Link to="/newproduct">
-          <button className="productAddButton">Create</button>
-        </Link>
+        <h1 className="productTitle">Ordenes</h1>
       </div>
       <DataGrid
         rows={orders}

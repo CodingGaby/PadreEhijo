@@ -153,6 +153,15 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
+const Message = styled.div`
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 0px 10px;
+  display: "flex"; 
+  align-items: center; 
+  justify-content: center;
+`
+
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
@@ -185,6 +194,8 @@ const Cart = () => {
   return (
     <Container>
       <Wrapper>
+        <div style={{padding: "10px",}}>
+        </div>
         <Title>TU CARRITO</Title>
         <Top>
           <Link to="/">
@@ -199,32 +210,42 @@ const Cart = () => {
         </Top>
         <Bottom>
         <Info>
-            {cart.products.map((product) => (
-              <Product>
-                <ProductDetail>
-                  <Image src={product.img} />
-                  <Details>
-                    <ProductName>
-                      <b>Product:</b> {product.title}
-                    </ProductName>
-                    <ProductId>
-                      <b>ID:</b> {product._id}
-                    </ProductId>
-                    <ProductColor color={product.color} />
-                    <ProductSize>
-                      <b>Size:</b> {product.size}
-                    </ProductSize>
-                    <ProductAmount><b>Quantity:</b> {product.quantity}</ProductAmount>
-                  </Details>
-                </ProductDetail>
-                <PriceDetail>
-                  <ProductPrice>
-                    $ {product.price * product.quantity}
-                  </ProductPrice>
-                </PriceDetail>
-              </Product>
-            ))}
-            <Hr />
+        {quantity > 0 ? (
+              <Info>
+                {cart.products.map((product) => (
+                  <Product>
+                    <ProductDetail>
+                      <Image src={product.img} />
+                      <Details>
+                        <ProductName>
+                          <b>Product:</b> {product.title}
+                        </ProductName>
+                        <ProductId>
+                          <b>ID:</b> {product._id}
+                        </ProductId>
+                        <ProductColor color={product.color} />
+                        <ProductSize>
+                          <b>Size:</b> {product.size}
+                        </ProductSize>
+                        <ProductAmount><b>Quantity:</b> {product.quantity}</ProductAmount>
+                      </Details>
+                    </ProductDetail>
+                    <PriceDetail>
+                      <ProductPrice>
+                        $ {product.price * product.quantity}
+                      </ProductPrice>
+                    </PriceDetail>
+                    
+                  </Product> 
+                ))}
+                <Hr/>
+              </Info>
+            ) : (
+              <Message>
+                No hay nada en tu carrito
+              </Message>
+            )
+            }
           </Info>
           <Summary>
             <SummaryTitle>RESUMEN DE LA ORDEN</SummaryTitle>
