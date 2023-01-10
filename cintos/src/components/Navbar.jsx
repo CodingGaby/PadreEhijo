@@ -107,8 +107,13 @@ const Navbar = () => {
             </Link>
           </Center>
           <Right>
+            <div>
+
+            </div>
             {user ? (
               <MenuItem onClick={handleClick} style={{fontSize: "15px", display: "flex", alignItems: "center",}}>
+                LOG OUT
+                
                 <img
                   src={
                     user.img || "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/Sample_User_Icon.png?alt=media&token=f9e7d38f-54b2-489b-9b3b-380930590f9a"
@@ -119,8 +124,11 @@ const Navbar = () => {
                     height: "25px",
                     borderRadius: "50%",
                     marginRight: "5px",
+                    paddingLeft:"10px",
                   }}/>
-                 {user.username} <ExpandMoreRounded/>
+
+                 {user.username}
+                 
               </MenuItem>
             ) : (
               <Link to="/login">
