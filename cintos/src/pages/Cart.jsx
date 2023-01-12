@@ -38,6 +38,9 @@ const TopButton = styled.button`
   background-color: ${(props) =>
     props.type === "filled" ? "black" : "transparent"};
   color: ${(props) => props.type === "filled" && "white"};
+  &:hover{
+    text-decoration: underline;
+  }
 `;
 
 const TopTexts = styled.div`
@@ -47,9 +50,11 @@ const TopTexts = styled.div`
   ${mobile({ display: "none" })}
 `;
 const TopText = styled.span`
-  text-decoration: underline;
   cursor: pointer;
   margin: 0px 10px;
+  &:hover{
+    text-decoration: underline;
+  }
 `;
 
 const Bottom = styled.div`
@@ -60,6 +65,12 @@ const Bottom = styled.div`
 
 const Info = styled.div`
   flex: 3;
+`;
+const Infoo = styled.div`
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Product = styled.div`
@@ -151,6 +162,9 @@ const Button = styled.button`
   color: white;
   font-weight: 600;
   cursor: pointer;
+  &:hover{
+    text-decoration: underline;
+  }
 `;
 
 const Message = styled.div`
@@ -194,8 +208,7 @@ const Cart = () => {
   return (
     <Container>
       <Wrapper>
-        <div style={{padding: "10px",}}>
-        </div>
+        <div style={{padding: "10px",}}></div>
         <Title>TU CARRITO</Title>
         <Top>
           <Link to="/">
@@ -209,7 +222,6 @@ const Cart = () => {
           <TopButton onClick={handleClick} type="filled" >BORRAR CARRITO</TopButton>          
         </Top>
         <Bottom>
-        <Info>
         {quantity > 0 ? (
               <Info>
                 {cart.products.map((product) => (
@@ -241,12 +253,15 @@ const Cart = () => {
                 <Hr/>
               </Info>
             ) : (
-              <Message>
-                No hay nada en tu carrito
-              </Message>
+              <Infoo>
+                <Message>
+                  <Link to="/">
+                    No hay nada en tu carrito :(
+                  </Link>
+                </Message>
+              </Infoo>
             )
             }
-          </Info>
           <Summary>
             <SummaryTitle>RESUMEN DE LA ORDEN</SummaryTitle>
             <SummaryItem>
@@ -266,7 +281,7 @@ const Cart = () => {
               <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <StripeCheckout 
-              name="Cinto" 
+              name="Padre e Hijo" 
               image="https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/IMG-0347_adobe_express.svg?alt=media&token=d0c11685-6ed6-4a60-a75c-935325fe60c4"
               billingAddress
               shippingAddress
@@ -280,6 +295,7 @@ const Cart = () => {
           </Summary>
         </Bottom>
       </Wrapper>
+      <Hr/>
       <Footer />
     </Container>
   );

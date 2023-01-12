@@ -1,5 +1,5 @@
 import { Badge } from "@material-ui/core";
-import { ExpandMoreRounded, Search, ShoppingBasketOutlined } from "@material-ui/icons";
+import { Search, ShoppingBasketOutlined } from "@material-ui/icons";
 import React from 'react';
 import styled from 'styled-components';
 import { mobile } from "../responsive";
@@ -74,6 +74,21 @@ const MenuItem = styled.div`
     text-decoration: underline;
   }
 `;
+const MenuItemm = styled.div`
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 25px;
+  ${mobile({ fontSize: "15px", marginRight: "10px", marginLeft: "2px"})}
+  &:hover{
+    text-decoration: underline;
+  }
+  &:hover span {
+    display: none
+  }
+  &:hover:after {
+    content: "LOG OUT"
+  }
+`;
 
 const Navbar = () => {
   const quantity = useSelector(state=>state.cart.quantity)
@@ -107,13 +122,8 @@ const Navbar = () => {
             </Link>
           </Center>
           <Right>
-            <div>
-
-            </div>
             {user ? (
-              <MenuItem onClick={handleClick} style={{fontSize: "15px", display: "flex", alignItems: "center",}}>
-                LOG OUT
-                
+              <MenuItemm onClick={handleClick} style={{fontSize: "15px", display: "flex", alignItems: "center",}}>
                 <img
                   src={
                     user.img || "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/Sample_User_Icon.png?alt=media&token=f9e7d38f-54b2-489b-9b3b-380930590f9a"
@@ -126,10 +136,10 @@ const Navbar = () => {
                     marginRight: "5px",
                     paddingLeft:"10px",
                   }}/>
-
-                 {user.username}
-                 
-              </MenuItem>
+                <span>
+                  {user.username}
+                </span>
+              </MenuItemm>
             ) : (
               <Link to="/login">
                 <MenuItem>
