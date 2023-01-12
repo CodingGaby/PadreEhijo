@@ -5,15 +5,118 @@ import { Publish } from "@material-ui/icons";
 import { useSelector } from "react-redux";
 import { useEffect, useMemo, useState } from "react";
 import { userRequest } from "../../requestMethods";
+import { updateProduct } from "../../redux/apiCalls";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
+import app from "../../firebase";
+
 
 export default function Product() {
+    
+  const history = useHistory();
   const location = useLocation();
   const productId = location.pathname.split("/")[2];
   const [pStats, setPStats] = useState([]);
+  const [inputs, setInputs] = useState({});
+  const [file, setFile] = useState(null);
+  const [title, setTitle] = useState(null);
+  const [desc, setDesc] = useState(null);
+  const [price, setPrice] = useState(null);
+
+  const [cat, setCat] = useState([]);
+  const [color, setColor] = useState([]);
+  const [size, setSize] = useState([]);
+
+  const dispatch = useDispatch();
+
 
   const product = useSelector((state) =>
     state.product.products.find((product) => product._id === productId)
   );
+
+  const handleChange = (e) => {
+    setInputs((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
+  const handleTitle=(e)=>{   
+    setTitle(e.target.value);
+  };
+  const handleDesc=(e)=>{
+    setDesc(e.target.value)
+  };
+  const handlePrice=(e)=>{
+    setPrice(e.target.value)
+  };
+
+  const handleCat = (e) => {
+    setCat(e.target.value.split(","));
+  };
+  const handleColor = (e) => {
+    setColor(e.target.value.split(","));
+  };
+  const handleSize = (e) => {
+    setSize(e.target.value.split(","));
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    const producto = { title:title,
+                      desc:desc,
+                      img: product.img,
+                      categories: cat,
+                      color: color,
+                      size: size,
+                      price:price };
+
+      updateProduct(productId, producto, dispatch);
+      history.push("/dashboard");
+
+    /*const fileName = new Date().getTime() + file.name;
+    const storage = getStorage(app);
+    const storageRef = ref(storage, fileName);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    // Register three observers:
+    // 1. 'state_changed' observer, called any time the state changes
+    // 2. Error observer, called on failure
+    // 3. Completion observer, called on successful completion
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        // Observe state change events such as progress, pause, and resume
+        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload is " + progress + "% done");
+        switch (snapshot.state) {
+          case "paused":
+            console.log("Upload is paused");
+            break;
+          case "running":
+            console.log("Upload is running");
+            break;
+          default:
+        }
+      },
+      (error) => {
+        // Handle unsuccessful uploads
+      },
+      () => {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          
+        });
+      }
+    );*/
+  };
 
   const MONTHS = useMemo(
     () => [
@@ -37,8 +140,8 @@ export default function Product() {
     const getStats = async () => {
       try {
         const res = await userRequest.get("orders/income?pid=" + productId);
-        const list = res.data.sort((a,b)=>{
-            return a._id - b._id
+        const list = res.data.sort((a, b) => {
+          return a._id - b._id
         })
         list.map((item) =>
           setPStats((prev) => [
@@ -52,6 +155,7 @@ export default function Product() {
     };
     getStats();
   }, [productId, MONTHS]);
+
 
   return (
     <div className="product">
@@ -90,13 +194,19 @@ export default function Product() {
         <form className="productForm">
           <div className="productFormLeft">
             <label>Product Name</label>
-            <input type="text" placeholder={product.title} />
+            <input type="text" placeholder={product.title} defaultValue={product.title} onChange={handleTitle} />
             <label>Product Description</label>
-            <input type="text" placeholder={product.desc} />
+            <input type="text" placeholder={product.desc} defaultValue={product.desc} onChange={handleDesc} />
             <label>Price</label>
-            <input type="text" placeholder={product.price} />
+            <input type="text" placeholder={product.price} defaultValue={product.price} onChange={handlePrice} />
+            <label>Categorias</label>
+            <input type="text" placeholder={product.categories} defaultValue={product.categories} onChange={handleCat} />
+            <label>Tallas</label>
+            <input type="text" placeholder={product.size} defaultValue={product.size} onChange={handleSize} />
+            <label>Color</label>
+            <input type="text" placeholder={product.color} defaultValue={product.color} onChange={handleColor} />
             <label>In Stock</label>
-            <select name="inStock" id="idStock">
+            <select name="inStock" id="idStock" onChange={handleChange}>
               <option value="true">Yes</option>
               <option value="false">No</option>
             </select>
@@ -109,7 +219,7 @@ export default function Product() {
               </label>
               <input type="file" id="file" style={{ display: "none" }} />
             </div>
-            <button className="productButton">Update</button>
+            <button className="productButton" onClick={handleClick} >Update</button>
           </div>
         </form>
       </div>
