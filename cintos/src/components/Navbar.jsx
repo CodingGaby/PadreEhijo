@@ -43,7 +43,7 @@ const Center = styled.div`
 
 const Logo = styled.h1`
   font-weight: bold;
-  ${mobile({ fontSize: "20px"})}
+  ${mobile({ fontSize: "15.3px"})}
   text-decoration: none;
 `;
 
@@ -86,7 +86,7 @@ const MenuItemm = styled.div`
     display: none
   }
   &:hover:after {
-    content: "LOG OUT"
+    content: "LogOut"
   }
 `;
 
@@ -118,7 +118,7 @@ const Navbar = () => {
           </Left>
           <Center>
             <Link to="/">
-            <Logo>PadreeHijo</Logo>
+            <Logo>Padre e Hijo</Logo>
             </Link>
           </Center>
           <Right>

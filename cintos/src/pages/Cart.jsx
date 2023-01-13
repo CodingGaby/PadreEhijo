@@ -86,6 +86,7 @@ const ProductDetail = styled.div`
 
 const Image = styled.img`
   width: 200px;
+  ${mobile({ width: "132px" })}
 `;
 
 const Details = styled.div`
@@ -93,6 +94,7 @@ const Details = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  ${mobile({ fontSize: "15px"})}
 `;
 
 const ProductName = styled.span``;
