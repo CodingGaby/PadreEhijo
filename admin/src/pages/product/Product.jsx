@@ -8,14 +8,6 @@ import { userRequest } from "../../requestMethods";
 import { updateProduct } from "../../redux/apiCalls";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import {
-  getStorage,
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-} from "firebase/storage";
-import app from "../../firebase";
-
 
 export default function Product() {
     
@@ -23,8 +15,7 @@ export default function Product() {
   const location = useLocation();
   const productId = location.pathname.split("/")[2];
   const [pStats, setPStats] = useState([]);
-  const [inputs, setInputs] = useState({});
-  const [file, setFile] = useState(null);
+  const [setInputs] = useState({});
   const [title, setTitle] = useState(null);
   const [desc, setDesc] = useState(null);
   const [price, setPrice] = useState(null);
@@ -76,7 +67,7 @@ export default function Product() {
                       price:price };
 
       updateProduct(productId, producto, dispatch);
-      history.push("/dashboard");
+      history.push("/products");
 
     /*const fileName = new Date().getTime() + file.name;
     const storage = getStorage(app);

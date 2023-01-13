@@ -28,12 +28,18 @@ const Success = () => {
       try {
         const res = await userRequest.post("/orders", {
           userId: currentUser._id,
+          userEmail: currentUser.email,
+          userName: data.billing_details.name,
           products: cart.products.map((item) => ({
             productId: item._id,
+            img: item.img,
             quantity: item._quantity,
+            size: item.size,
+            color: item.color,
           })),
           amount: cart.total,
           address: data.billing_details.address,
+          postalCode: data.billing_details.address.postal_code,
         });
         setOrderId(res.data._id);
       } catch {}
