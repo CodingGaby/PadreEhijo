@@ -19,7 +19,6 @@ export default function Product() {
   const [title, setTitle] = useState(null);
   const [desc, setDesc] = useState(null);
   const [price, setPrice] = useState(null);
-
   const [cat, setCat] = useState([]);
   const [color, setColor] = useState([]);
   const [size, setSize] = useState([]);
@@ -130,7 +129,7 @@ export default function Product() {
   useEffect(() => {
     const getStats = async () => {
       try {
-        const res = await userRequest.get("orders/income?pid=" + productId);
+        const res = await userRequest.get("product/income?pid=" + productId);
         const list = res.data.sort((a, b) => {
           return a._id - b._id
         })

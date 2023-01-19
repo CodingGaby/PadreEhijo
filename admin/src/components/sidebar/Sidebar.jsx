@@ -53,7 +53,7 @@ export default function Sidebar() {
             <li className="sidebarListItem" >
               <NavLink to="/orders" className="link">
                 <AttachMoney className="sidebarIcon" />
-                Transactions
+                Orders
               </NavLink>
             </li>
             <li className="notlink" >

@@ -26,11 +26,6 @@ import ProductOrderList from "../../components/productOrder/ProductOrder";
       getOrders(dispatch);
     }, [dispatch]);
   
-  
-    /*const handleDelete = (id) => {
-      deleteProduct(id, dispatch);
-    };*/
-  
     return (
       <div className="user">
         <div className="userTitleContainer">

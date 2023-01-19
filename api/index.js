@@ -18,7 +18,12 @@ mongoose
     console.log(err);
   });
 
-app.use(cors());
+app.use(cors({
+  "origin": "*",
+  "methods": "*",
+  "allowedHeaders": "*",
+  "exposedHeaders": "*"
+}));
 app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);

@@ -22,7 +22,17 @@ import {
   deleteUserSuccess,
   deleteUserFailure,
 } from "./usersRedux";
-import { getOrderFailure, getOrderStart, getOrderSuccess } from "./orderRedux";
+import { 
+  getOrderFailure, 
+  getOrderStart, 
+  getOrderSuccess,
+  deleteOrderStart,
+  deleteOrderSuccess,
+  deleteOrderFailure, 
+  updateOrderStart,
+  updateOrderSuccess, 
+  updateOrderFailure,
+} from "./orderRedux";
 
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
@@ -67,8 +77,8 @@ export const getOrders = async (dispatch) => {
 export const deleteProduct = async (id, dispatch) => {
   dispatch(deleteProductStart());
   try {
-    // const res = await userRequest.delete(`/products/${id}`);
-    dispatch(deleteProductSuccess(id));
+    const res = await userRequest.delete(`/products/${id}`);
+    dispatch(deleteProductSuccess(res.id));
   } catch (err) {
     dispatch(deleteProductFailure());
   }
@@ -77,10 +87,20 @@ export const deleteProduct = async (id, dispatch) => {
 export const deleteUser = async (id, dispatch) => {
   dispatch(deleteUserStart());
   try {
-    // const res = await userRequest.delete(`/products/${id}`);
-    dispatch(deleteUserSuccess(id));
+    const res = await userRequest.delete(`/users/${id}`);
+    dispatch(deleteUserSuccess(res.id));
   } catch (err) {
     dispatch(deleteUserFailure());
+  }
+};
+
+export const deleteOrder = async (id, dispatch) => {
+  dispatch(deleteOrderStart());
+  try {
+    const res = await userRequest.delete(`/orders/${id}`);
+    dispatch(deleteOrderSuccess(res.id));
+  } catch (err) {
+    dispatch(deleteOrderFailure());
   }
 };
 
@@ -101,5 +121,16 @@ export const addProduct = async (product, dispatch) => {
     dispatch(addProductSuccess(res.data));
   } catch (err) {
     dispatch(addProductFailure());
+  }
+};
+
+export const updateOrder = async (id, orderStatus, dispatch) => {
+  dispatch(updateOrderStart());
+  try {
+    // update
+    const res = await userRequest.put(`/order/${id}`, orderStatus);
+    dispatch(updateOrderSuccess({ id, orderStatus }));
+  } catch (err) {
+    dispatch(updateOrderFailure());
   }
 };

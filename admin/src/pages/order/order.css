@@ -162,3 +162,16 @@
     color: white;
     font-weight: 600;
 }
+
+.productFormLeft > select{
+  margin-bottom: 10px;
+}
+
+.productFormLeft > label {
+  margin-bottom: 10px;
+}
+
+.productFormLeft {
+  display: flex;
+  flex-direction: column;
+}
