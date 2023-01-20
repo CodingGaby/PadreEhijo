@@ -8,14 +8,6 @@ import { userRequest } from "../../requestMethods";
 import { updateProduct } from "../../redux/apiCalls";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import {
-  getStorage,
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-} from "firebase/storage";
-import app from "../../firebase";
-
 
 export default function Product() {
     
@@ -23,12 +15,10 @@ export default function Product() {
   const location = useLocation();
   const productId = location.pathname.split("/")[2];
   const [pStats, setPStats] = useState([]);
-  const [inputs, setInputs] = useState({});
-  const [file, setFile] = useState(null);
+  const [setInputs] = useState({});
   const [title, setTitle] = useState(null);
   const [desc, setDesc] = useState(null);
   const [price, setPrice] = useState(null);
-
   const [cat, setCat] = useState([]);
   const [color, setColor] = useState([]);
   const [size, setSize] = useState([]);
@@ -76,7 +66,7 @@ export default function Product() {
                       price:price };
 
       updateProduct(productId, producto, dispatch);
-      
+      history.push("/products");
 
     /*const fileName = new Date().getTime() + file.name;
     const storage = getStorage(app);
@@ -139,7 +129,7 @@ export default function Product() {
   useEffect(() => {
     const getStats = async () => {
       try {
-        const res = await userRequest.get("orders/income?pid=" + productId);
+        const res = await userRequest.get("product/income?pid=" + productId);
         const list = res.data.sort((a, b) => {
           return a._id - b._id
         })

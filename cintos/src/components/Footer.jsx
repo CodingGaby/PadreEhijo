@@ -1,4 +1,5 @@
 import { Facebook, Instagram, MailOutline, Phone, Room, WhatsApp } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 
@@ -12,6 +13,7 @@ const Left = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
+  cursor: default;
 `;
 
 const Logo = styled.h1`
@@ -25,18 +27,20 @@ const Desc = styled.p`
 const SocialContainer = styled.div`
   display: flex;
   border-radius: 5px;
+  align-items: center;
+  justify-content: center;
 `;
 
 const SocialIcon = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  color: white;
+  color: black;
   background-color: #${(props) => props.color};
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 20px;
+  margin-right: 50px;
 `;
 
 const Center = styled.div`
@@ -51,6 +55,7 @@ const Title = styled.h3`
   margin-bottom: 30px;
   align-items: center;
   justify-content: center;
+  cursor: default;
 `;
 
 const List = styled.ul`
@@ -64,6 +69,9 @@ const List = styled.ul`
 const ListItem = styled.li`
   width: 50%;
   margin-bottom: 10px;
+  &:hover{
+    text-decoration: underline;
+  }
 `;
 
 const Right = styled.div`
@@ -76,6 +84,9 @@ const ContactItem = styled.div`
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  &:hover{
+    text-decoration: underline;
+  }
 `;
 
 const Payment = styled.img`
@@ -87,6 +98,11 @@ const Footer = () => {
     <Container>
       <Left>
         <Logo>Cinturones</Logo>
+        <Desc>
+          There are many variations of passages of Lorem Ipsum available, but
+          the majority have suffered alteration in some form, by injected
+          humour, or randomised words which don’t look even slightly believable.
+        </Desc>
         <SocialContainer>
             <SocialIcon>
                 <Facebook/>
@@ -100,17 +116,32 @@ const Footer = () => {
         </SocialContainer>
       </Left>
       <Center>
+        <Title>Useful Links</Title>
+        <List>
+          <ListItem>Home</ListItem>
+          <ListItem>Cart</ListItem>
+          <ListItem>Man Fashion</ListItem>
+          <ListItem>Woman Fashion</ListItem>
+          <ListItem>Accessories</ListItem>
+          <ListItem>My Account</ListItem>
+          <ListItem>Order Tracking</ListItem>
+          <ListItem>Wishlist</ListItem>
+          <ListItem>Wishlist</ListItem>
+          <ListItem>Terms</ListItem>
+        </List>
       </Center>
       <Right>
         <Title>Contact</Title>
         <ContactItem>
-          <Room style={{marginRight:"10px"}}/> 15 de Mayo 2939, Villa San Alejandro, Puebla, Pue.
+          <a rel="noreferrer" href="https://goo.gl/maps/dWkGiAQpotAZoqt49" target="_blank">
+            <Room style={{marginRight:"10px"}}/> Ojo de Agua 495, Cuautlanciongo, Pue.
+          </a>
         </ContactItem>
         <ContactItem>
-          <Phone style={{marginRight:"10px"}}/> +1 234 56 78
+          <Phone style={{marginRight:"10px"}}/> +52 (221) 221-6730
         </ContactItem>
         <ContactItem>
-          <MailOutline style={{marginRight:"10px"}} /> contact@gmail.com
+          <MailOutline style={{marginRight:"10px"}} /> padreehijop_h@hotmail.com
         </ContactItem>
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>
