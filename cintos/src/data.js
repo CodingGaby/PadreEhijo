@@ -2,26 +2,26 @@ export const sliderItems = [
     {
       id: 1,
       img: "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/1671588373290Mi%20proyecto.png?alt=media&token=84642273-cfbf-45e2-be4f-98327ad6a487",
-      title: "VENTA DE OTOÑO",
-      desc: "LO MEJOR EN CINTURONES! OBTEN 30% DE DESCUENTO EN NUESTROS NUEVOS PRODUCTOS.",
+      title: "DESCUBRE EL CATÁLOGO COMPLETO",
+      desc: "LO MEJOR EN CINTURONES! ENVIOS NACIONALES.",
       bg: "dbc8a9",
-      cat: "Otoño"
-    },
-    {
-      id: 2,
-      img: "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/1672096618474My%20project-1%20(1).png?alt=media&token=765c38cc-a59c-4792-93ed-a9581f851df1",
-      title: "PRODUCTOS NUEVOS",
-      desc: "LO MEJOR EN CINTURONES! OBTEN 30% DE DESCUENTO EN NUESTROS NUEVOS PRODUCTOS.",
-      bg: "c9a677",
       cat: "Nuevo"
     },
     {
-      id: 3,
-      img: "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/1672097807838My%20project-1%20(2).png?alt=media&token=b4c7e883-37ad-4236-a4f1-7ba7dfb61dca",
-      title: "PRODUCCIÓN ARTESANAL",
-      desc: "LO MEJOR EN CINTURONES! OBTEN 30% DE DESCUENTO EN NUESTROS NUEVOS PRODUCTOS.",
-      bg: "efd7cc",
-      cat: "Artesanal"
+      // id: 2,
+      // img: "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/1672096618474My%20project-1%20(1).png?alt=media&token=765c38cc-a59c-4792-93ed-a9581f851df1",
+      // title: "PRODUCTOS NUEVOS",
+      // desc: "LO MEJOR EN CINTURONES! OBTEN 30% DE DESCUENTO EN NUESTROS NUEVOS PRODUCTOS.",
+      // bg: "c9a677",
+      // cat: "Nuevo"
+    },
+    {
+      // id: 3,
+      // img: "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/1672097807838My%20project-1%20(2).png?alt=media&token=b4c7e883-37ad-4236-a4f1-7ba7dfb61dca",
+      // title: "PRODUCCIÓN ARTESANAL",
+      // desc: "LO MEJOR EN CINTURONES! OBTEN 30% DE DESCUENTO EN NUESTROS NUEVOS PRODUCTOS.",
+      // bg: "efd7cc",
+      // cat: "Artesanal"
     },
   ];
 
