@@ -96,10 +96,6 @@ const Navbar = () => {
             <Link to="/">
               <ImgLogo style={{cursor: "pointer"}} src="https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/IMG-0347_adobe_express.svg?alt=media&token=d0c11685-6ed6-4a60-a75c-935325fe60c4"/>
             </Link>
-            <Language style={{marginLeft:"25px"}}>ESP</Language>
-            <SearchIcon>
-              <Search style={{fontSize:24, border: "0.5px", display: "flex",alignItems:"center", marginLeft: "25px", padding: "5px", cursor: "not-allowed",}}/>
-            </SearchIcon>
           </Left>
           <Center>
             <Link to="/">
