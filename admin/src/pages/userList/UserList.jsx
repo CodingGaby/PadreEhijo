@@ -54,7 +54,7 @@ export default function UserList() {
         return (
           <>
             <Link to={"/user/" + params.row._id}>
-              <button className="userListEdit">Edit</button>
+              <button className="userListEdit">View</button>
             </Link>
             <DeleteOutline
               className="userListDelete"

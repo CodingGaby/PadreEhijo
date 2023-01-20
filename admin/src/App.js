@@ -16,17 +16,15 @@ import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
 import OrdersList from "./pages/ordersList/OrdersList"
+import Order from "./pages/order/Order"
 import { useSelector } from "react-redux";
 
 function App() {
-  const user = useSelector((state) => state.user.currentUser);
-  const Navigate = useHistory();
-
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <Login element={user ? <Navigate to="/" /> : <Login />} />
+          <Login/>
         </Route>
           <>
             <Topbar />
@@ -49,6 +47,9 @@ function App() {
               </Route>
               <Route path="/orders">
                 <OrdersList />
+              </Route>
+              <Route path="/order/:orderId">
+                <Order />
               </Route>
               <Route path="/product/:productId">
                 <Product />

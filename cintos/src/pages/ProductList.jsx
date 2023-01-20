@@ -54,34 +54,34 @@ const ProductList = () => {
 
   return (
     <Container>
-       <Title>{cat}</Title>
-       <FilterContainer>
-            <Filter>
-                <FilterText>Filtrar Productos:</FilterText>
-                <Select name="size" onChange={handleFilters}>
-                    <Option disabled>
-                      Talla
-                    </Option>
-                    <Option>XS</Option>
-                    <Option>S</Option>
-                    <Option>M</Option>
-                    <Option>L</Option>
-                    <Option>XL</Option>
-                </Select>
-                
-            </Filter>
-            <Filter>
-                <FilterText>Ordenar Productos</FilterText>
-                <Select onChange={(e) => setSort(e.target.value)}>
-                    <Option value="newest">Nuevo</Option>
-                    <Option value="asc">Precio (asc)</Option>
-                    <Option value="desc">Precio (desc)</Option>
-                </Select>
-            </Filter>
-       </FilterContainer>
-       <Products cat={cat} filters={filters} sort={sort} />
-       <Newsletter/>
-       <Footer/>
+      <div style={{padding: "10px",}}></div>
+      <Title>{cat}</Title>
+      <FilterContainer>
+        <Filter>
+          <FilterText>Filtrar Productos:</FilterText>
+          <Select name="size" onChange={handleFilters}>
+            <Option disabled>
+              Talla
+            </Option>
+            <Option>XS</Option>
+            <Option>S</Option>
+            <Option>M</Option>
+            <Option>L</Option>
+            <Option>XL</Option>
+          </Select>        
+        </Filter>
+        <Filter>
+          <FilterText>Ordenar Productos</FilterText>
+            <Select onChange={(e) => setSort(e.target.value)}>
+              <Option value="newest">Nuevo</Option>
+              <Option value="asc">Precio (asc)</Option>
+              <Option value="desc">Precio (desc)</Option>
+            </Select>
+        </Filter>
+      </FilterContainer>
+      <Products cat={cat} filters={filters} sort={sort} />
+      <Newsletter/>
+      <Footer/>
     </Container>
   )
 }

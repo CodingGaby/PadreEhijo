@@ -4,7 +4,7 @@ import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getOrders } from "../../redux/apiCalls";
+import { getOrders, deleteOrder } from "../../redux/apiCalls";
 import {format} from "timeago.js"
 
 export default function ProductList() {
@@ -15,9 +15,9 @@ export default function ProductList() {
     getOrders(dispatch);
   }, [dispatch]);
 
-  /*const handleDelete = (id) => {
-    deleteProduct(id, dispatch);
-  };*/
+  const handleDelete = (id) => {
+    deleteOrder(id, dispatch);
+  };
   
   const Button = ({ type }) => {
     return <button className={"widgetLgButton " + type}>{type}</button>;
@@ -67,6 +67,7 @@ export default function ProductList() {
             </Link>
             <DeleteOutline
               className="productListDelete"
+              onClick={() => handleDelete(params.row._id)}
             />
           </>
         );

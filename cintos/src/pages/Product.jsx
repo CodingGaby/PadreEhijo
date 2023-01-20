@@ -1,7 +1,5 @@
 import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
-import Footer from "../components/Footer";
-import Newsletter from "../components/Newsletter";
 import {mobile} from "../responsive";
 import { publicRequest } from "../requestMethods";
 import { useLocation } from "react-router-dom";
