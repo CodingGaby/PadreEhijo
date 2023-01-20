@@ -19,6 +19,10 @@ mongoose
   });
 
 app.use(cors({
+  "origin":"*",
+  "methods":"*",
+  "allowedHeaders":"*",
+  "exposedHeaders":"*"
   "origin": "*",
   "methods": "*",
   "allowedHeaders": "*",
