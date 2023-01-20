@@ -22,8 +22,7 @@ app.use(cors({
   "origin":"*",
   "methods":"*",
   "allowedHeaders":"*",
-  "exposedHeaders":"*"
-  "origin": "*",
+  "exposedHeaders":"*",
   "methods": "*",
   "allowedHeaders": "*",
   "exposedHeaders": "*"
