@@ -98,11 +98,6 @@ const Footer = () => {
     <Container>
       <Left>
         <Logo>Cinturones</Logo>
-        <Desc>
-          There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don’t look even slightly believable.
-        </Desc>
         <SocialContainer>
             <SocialIcon>
                 <Facebook/>
