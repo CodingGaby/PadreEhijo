@@ -11,6 +11,7 @@ const Container = styled.div`
 const Left = styled.div`
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
@@ -19,6 +20,10 @@ const Left = styled.div`
 
 const Logo = styled.h1`
 
+`;
+
+const ImgLogo = styled.img`
+  height: 200px;
 `;
 
 const Desc = styled.p`
@@ -98,21 +103,32 @@ const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo>Cinturones</Logo>
+        <Logo>Padre e Hijo</Logo>
+        <ImgLogo style={{cursor: "pointer"}} src="https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/IMG-0347_adobe_express.svg?alt=media&token=d0c11685-6ed6-4a60-a75c-935325fe60c4"/>
       </Left>
       <Center>
         <Title>Useful Links</Title>
         <List>
-          <ListItem>Home</ListItem>
-          <ListItem>Cart</ListItem>
-          <ListItem>Man Fashion</ListItem>
-          <ListItem>Woman Fashion</ListItem>
-          <ListItem>Accessories</ListItem>
-          <ListItem>My Account</ListItem>
-          <ListItem>Order Tracking</ListItem>
-          <ListItem>Wishlist</ListItem>
-          <ListItem>Wishlist</ListItem>
-          <ListItem>Terms</ListItem>
+          <ListItem>
+            <Link to="/">
+              Home
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link to="/cart">
+              Cart
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link to="/products/Nuevo">
+              Nuevo
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link>
+              Proximamente...
+            </Link>
+          </ListItem>
         </List>
       </Center>
       <Right>
