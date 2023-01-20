@@ -97,12 +97,7 @@ const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo>Padre e Hijo</Logo>
-        <Desc>
-          There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don’t look even slightly believable.
-        </Desc>
+        <Logo>Cinturones</Logo>
         <SocialContainer>
             <SocialIcon>
                 <Facebook/>
@@ -118,26 +113,16 @@ const Footer = () => {
       <Center>
         <Title>Useful Links</Title>
         <List>
-          <ListItem>
-            <Link to="/">
-              Home
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/cart">
-              Cart
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/Nuevo">
-              Nuevo
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/Invierno">
-              Temporada
-            </Link>
-          </ListItem>
+          <ListItem>Home</ListItem>
+          <ListItem>Cart</ListItem>
+          <ListItem>Man Fashion</ListItem>
+          <ListItem>Woman Fashion</ListItem>
+          <ListItem>Accessories</ListItem>
+          <ListItem>My Account</ListItem>
+          <ListItem>Order Tracking</ListItem>
+          <ListItem>Wishlist</ListItem>
+          <ListItem>Wishlist</ListItem>
+          <ListItem>Terms</ListItem>
         </List>
       </Center>
       <Right>
