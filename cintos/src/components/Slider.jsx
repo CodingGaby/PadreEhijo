@@ -94,56 +94,22 @@ const Slider = () => {
 
   return (
     <Container>
-        <Arrow direction="left" onClick={()=>handleClick("left")}>
-           <ArrowBackIosRounded/>
-        </Arrow>
-        <Wrapper slideIndex={slideIndex}>
-            {sliderItems.map((item) => (
-                <Slide bg={item.bg} key={item.id}>
-                    <ImgContainer>
-                        <Image src={item.img}/>
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title>{item.title}</Title>
-                        <Desc>{item.desc}</Desc>
-                        <Link to={`/products/${item.cat}`}>
-                        <Button>COMPRA AHORA</Button>
-                        </Link>
-                    </InfoContainer>
-                </Slide>
-            ))}
-            {sliderItems.map((item) => (
-                <Slide bg={item.bg} key={item.id}>
-                    <ImgContainer>
-                        <Image src={item.img}/>
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title>{item.title}</Title>
-                        <Desc>{item.desc}</Desc>
-                        <Link to={`/products/${item.cat}`} style={{ position:"sticky", left: 950}}>
-                        <Button>COMPRA AHORA</Button>
-                        </Link>
-                    </InfoContainer>
-                </Slide>
-            ))}
-            {sliderItems.map((item) => (
-                <Slide bg={item.bg} key={item.id}>
-                    <ImgContainer>
-                        <Image src={item.img}/>
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title>{item.title}</Title>
-                        <Desc>{item.desc}</Desc>
-                        <Link to={`/products/${item.cat}`} style={{ position:"sticky", left: 950}}>
-                        <Button>COMPRA AHORA</Button>
-                        </Link>
-                    </InfoContainer>
-                </Slide>
-            ))}
-        </Wrapper>
-        <Arrow direction="right" onClick={()=>handleClick("right")}>
-           <ArrowForwardIosRounded/>
-        </Arrow>
+      <Wrapper slideIndex={slideIndex}>
+        {sliderItems.map((item) => (
+            <Slide bg={item.bg} key={item.id}>
+                <ImgContainer>
+                    <Image src={item.img}/>
+                </ImgContainer>
+                <InfoContainer>
+                    <Title>{item.title}</Title>
+                    <Desc>{item.desc}</Desc>
+                    <Link to={`/products/${item.cat}`}>
+                    <Button>COMPRA AHORA</Button>
+                    </Link>
+                </InfoContainer>
+            </Slide>
+        ))}
+      </Wrapper>
     </Container>
   )
 }
