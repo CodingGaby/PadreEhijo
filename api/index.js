@@ -24,7 +24,7 @@ app.use(cors({
   "allowedHeaders":"*",
   "exposedHeaders":"*"
 }));
-app.use(express.json());
+app.use(express.json())
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
