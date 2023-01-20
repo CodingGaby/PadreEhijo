@@ -76,7 +76,7 @@ export default function Product() {
                       price:price };
 
       updateProduct(productId, producto, dispatch);
-      history.push("/dashboard");
+      
 
     /*const fileName = new Date().getTime() + file.name;
     const storage = getStorage(app);

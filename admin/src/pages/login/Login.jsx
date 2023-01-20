@@ -77,7 +77,7 @@ const Login = () => {
   const handleClick = (e) => {
     e.preventDefault();
     login(dispatch, { username, password });
-    history.push("/dashboard")
+    history.push("/orders")
   };
   return (
     <Container>
