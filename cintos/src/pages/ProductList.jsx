@@ -63,18 +63,13 @@ const ProductList = () => {
             <Option disabled>
               Talla
             </Option>
-            <Option>20</Option>
-            <Option>21</Option>
-            <Option>22</Option>
-            <Option>23</Option>
-            <Option>24</Option>
-            <Option>25</Option>
-            <Option>26</Option>
-            <Option>27</Option>
-            <Option>28</Option>
-            <Option>29</Option>
-            <Option>30</Option>
-            <Option>31</Option>
+            <Option>38</Option>
+            <Option>40</Option>
+            <Option>42</Option>
+            <Option>44</Option>
+            <Option>46</Option>
+            <Option>48</Option>
+            <Option>50</Option>
           </Select>        
         </Filter>
         <Filter>
