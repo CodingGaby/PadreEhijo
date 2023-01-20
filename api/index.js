@@ -23,10 +23,6 @@ app.use(cors({
   "methods":"*",
   "allowedHeaders":"*",
   "exposedHeaders":"*"
-  "origin": "*",
-  "methods": "*",
-  "allowedHeaders": "*",
-  "exposedHeaders": "*"
 }));
 app.use(express.json())
 app.use("/api/auth", authRoute);
