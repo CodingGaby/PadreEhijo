@@ -11,7 +11,8 @@ const Container = styled.div`
 const Left = styled.div`
   flex: 1;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
   cursor: default;
 `;
@@ -98,17 +99,6 @@ const Footer = () => {
     <Container>
       <Left>
         <Logo>Cinturones</Logo>
-        <SocialContainer>
-            <SocialIcon>
-                <Facebook/>
-            </SocialIcon>
-            <SocialIcon>
-                <Instagram/>
-            </SocialIcon>
-            <SocialIcon>
-                <WhatsApp/>
-            </SocialIcon>
-        </SocialContainer>
       </Left>
       <Center>
         <Title>Useful Links</Title>
