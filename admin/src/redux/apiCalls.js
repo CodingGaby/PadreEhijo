@@ -109,7 +109,7 @@ export const updateProduct = async (id, product, dispatch) => {
   try {
     // update
     const res = await userRequest.put(`/products/${id}`, product);
-    dispatch(updateProductSuccess({ id, product }));
+    dispatch(updateProductSuccess(res.product, res.id));
   } catch (err) {
     dispatch(updateProductFailure());
   }

@@ -1,4 +1,4 @@
-import { Facebook, Instagram, MailOutline, Phone, Room, WhatsApp } from "@material-ui/icons";
+import { /*Facebook, Instagram, WhatsApp,*/ MailOutline, Phone, Room} from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { mobile } from "../responsive";
@@ -23,10 +23,10 @@ const Logo = styled.h1`
 `;
 
 const ImgLogo = styled.img`
-  height: 200px;
+  height: 170px;
 `;
 
-const Desc = styled.p`
+/*const Desc = styled.p`
   margin: 20px 0px;
 `;
 
@@ -47,7 +47,7 @@ const SocialIcon = styled.div`
   align-items: center;
   justify-content: center;
   margin-right: 50px;
-`;
+`;*/
 
 const Center = styled.div`
   flex: 1;

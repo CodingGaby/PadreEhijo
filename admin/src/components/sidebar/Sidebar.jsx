@@ -1,17 +1,8 @@
 import "./sidebar.css";
 import {
-  LineStyle,
-  Timeline,
-  TrendingUp,
   PermIdentity,
   Storefront,
   AttachMoney,
-  BarChart,
-  MailOutline,
-  DynamicFeed,
-  ChatBubbleOutline,
-  WorkOutline,
-  Report,
 } from "@material-ui/icons";
 import { NavLink } from "react-router-dom";
 

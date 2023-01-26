@@ -11,24 +11,23 @@ import { useHistory } from "react-router-dom";
 
 export default function Product() {
     
-  const history = useHistory();
   const location = useLocation();
   const productId = location.pathname.split("/")[2];
-  const [pStats, setPStats] = useState([]);
-  const [setInputs] = useState({});
-  const [title, setTitle] = useState(null);
-  const [desc, setDesc] = useState(null);
-  const [price, setPrice] = useState(null);
-  const [cat, setCat] = useState([]);
-  const [color, setColor] = useState([]);
-  const [size, setSize] = useState([]);
-
-  const dispatch = useDispatch();
-
-
   const product = useSelector((state) =>
     state.product.products.find((product) => product._id === productId)
   );
+
+  const history = useHistory();
+  const [pStats, setPStats] = useState([]);
+  const [setInputs] = useState({});
+  const [title, setTitle] = useState(product.title);
+  const [desc, setDesc] = useState(product.desc);
+  const [price, setPrice] = useState(product.price);
+  const [cat, setCat] = useState(product.cat);
+  const [color, setColor] = useState(product.color);
+  const [size, setSize] = useState(product.size);
+
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setInputs((prev) => {
@@ -57,14 +56,15 @@ export default function Product() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    const producto = { title:title,
-                      desc:desc,
-                      img: product.img,
-                      categories: cat,
-                      color: color,
-                      size: size,
-                      price:price };
-
+    const producto = { 
+      title:title,
+      desc:desc,
+      img: product.img,
+      categories: cat,
+      color: color,
+      size: size,
+      price:price
+    };
       updateProduct(productId, producto, dispatch);
       history.push("/orders");
 

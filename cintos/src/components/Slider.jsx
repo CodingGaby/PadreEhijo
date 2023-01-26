@@ -1,5 +1,5 @@
-import { ArrowBackIosRounded, ArrowForwardIosRounded } from "@material-ui/icons";
-import { useState } from "react";
+//import { ArrowBackIosRounded, ArrowForwardIosRounded } from "@material-ui/icons";
+//import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components"
 import { sliderItems } from "../data";
@@ -13,7 +13,7 @@ const Container = styled.div`
   overflow: hidden;
   ${mobile({ display: "none" })}
 `;
-
+/*
 const Arrow = styled.div`
   width: 50px;
   height: 50px;
@@ -32,7 +32,7 @@ const Arrow = styled.div`
   opacity: 0.5;
   z-index: 2;
 `;
-
+*/
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
@@ -83,18 +83,18 @@ const Button = styled.button`
 `;
 
 const Slider = () => {
-    const [slideIndex, setSlideIndex] = useState(0)
+    /*const [slideIndex, setSlideIndex] = useState(0)
     const handleClick = (direction) => {
         if(direction==="left"){
             setSlideIndex(slideIndex > 0 ? slideIndex -1 : 2)
         }else{
             setSlideIndex(slideIndex < 2 ? slideIndex +1 : 0)
         }
-    };
+    };*/
 
   return (
     <Container>
-      <Wrapper slideIndex={slideIndex}>
+      <Wrapper /*slideIndex={slideIndex}*/>
         {sliderItems.map((item) => (
             <Slide bg={item.bg} key={item.id}>
                 <ImgContainer>
@@ -111,7 +111,7 @@ const Slider = () => {
         ))}
       </Wrapper>
     </Container>
-  )
+  )//return
 }
 
 export default Slider

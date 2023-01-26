@@ -1,5 +1,5 @@
 import { Badge } from "@material-ui/core";
-import { Search, ShoppingBasketOutlined } from "@material-ui/icons";
+import { /*Search,*/ ShoppingBasketOutlined } from "@material-ui/icons";
 import React from 'react';
 import styled from 'styled-components';
 import { mobile } from "../responsive";
@@ -31,10 +31,10 @@ const Left = styled.div`
   ${mobile({ })}
 `;
 
-const Language = styled.span`
+/*const Language = styled.span`
   font-size: 14px;
   ${mobile({ display: "none" })}
-`;
+`;*/
 
 const Center = styled.div`
   flex: 1;
@@ -53,9 +53,9 @@ const ImgLogo = styled.img`
   ${mobile({ height: "30px", margin: "none" })}
 `;
 
-const SearchIcon = styled.div`
+/*const SearchIcon = styled.div`
   ${mobile({ display: "none" })}
-`;
+`;*/
 
 const Right = styled.div`
   flex: 1;

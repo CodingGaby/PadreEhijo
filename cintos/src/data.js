@@ -2,7 +2,7 @@ export const sliderItems = [
     {
       id: 1,
       img: "https://firebasestorage.googleapis.com/v0/b/shop-e92d5.appspot.com/o/1671588373290Mi%20proyecto.png?alt=media&token=84642273-cfbf-45e2-be4f-98327ad6a487",
-      title: "DESCUBRE EL CATÁLOGO COMPLETO",
+      title: "DESCUBRE EL CATÁLOGO",
       desc: "LO MEJOR EN CINTURONES! ENVIOS NACIONALES.",
       bg: "dbc8a9",
       cat: "Nuevo"
