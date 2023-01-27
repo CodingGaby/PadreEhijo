@@ -11,7 +11,7 @@ const Container =styled.div`
    justify-content: space-between; 
 `;
 
-const Products = ({cat,filters,sort}) => {
+const Products = ({ cat, filters, sort }) => {
   const [products, setProducts] = useState([]);
   const [filteredproducts, setFilteredProducts] = useState([]);
 

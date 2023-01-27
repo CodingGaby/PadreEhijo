@@ -31,6 +31,12 @@ export default function Sidebar() {
                 Orders
               </NavLink>
             </li>
+            <li className="sidebarListItem" >
+              <NavLink to="/orders" className="link">
+                <AttachMoney className="sidebarIcon" />
+                Slider
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>
