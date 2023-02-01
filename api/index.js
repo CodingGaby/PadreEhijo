@@ -6,7 +6,7 @@ dotenv.config();
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
-const SliderRoute = require("./routes/slider");
+const sliderRoute = require("./routes/slider");
 const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
 const stripeRoute = require("./routes/stripe");
@@ -30,7 +30,7 @@ app.use(express.json())
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
-app.use("/api/sliders", productRoute);
+app.use("/api/sliders", sliderRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/checkout", stripeRoute);
