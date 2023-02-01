@@ -32,7 +32,7 @@ export default function Sidebar() {
               </NavLink>
             </li>
             <li className="sidebarListItem" >
-              <NavLink to="/orders" className="link">
+              <NavLink to="/slider" className="link">
                 <AttachMoney className="sidebarIcon" />
                 Slider
               </NavLink>

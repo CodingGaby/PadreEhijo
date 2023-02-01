@@ -16,6 +16,7 @@ import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
 import OrdersList from "./pages/ordersList/OrdersList"
 import Order from "./pages/order/Order"
+import Slider from "./pages/slider/Slider"
 
 function App() {
   return (
@@ -54,6 +55,9 @@ function App() {
               </Route>
               <Route path="/newproduct">
                 <NewProduct />
+              </Route>
+              <Route path="/slider">
+                <Slider />
               </Route>
             </div>
           </>
