@@ -1,8 +1,9 @@
-//import { ArrowBackIosRounded, ArrowForwardIosRounded } from "@material-ui/icons";
-//import { useState } from "react";
+import { ArrowBackIosRounded, ArrowForwardIosRounded } from "@material-ui/icons";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components"
-import { sliderItems } from "../data";
+import { publicRequest } from "../requestMethods";
 import { mobile } from "../responsive";
 
 const Container = styled.div`
@@ -13,7 +14,7 @@ const Container = styled.div`
   overflow: hidden;
   ${mobile({ display: "none" })}
 `;
-/*
+
 const Arrow = styled.div`
   width: 50px;
   height: 50px;
@@ -32,7 +33,7 @@ const Arrow = styled.div`
   opacity: 0.5;
   z-index: 2;
 `;
-*/
+
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
@@ -83,35 +84,81 @@ const Button = styled.button`
 `;
 
 const Slider = () => {
-    /*const [slideIndex, setSlideIndex] = useState(0)
-    const handleClick = (direction) => {
-        if(direction==="left"){
-            setSlideIndex(slideIndex > 0 ? slideIndex -1 : 2)
-        }else{
-            setSlideIndex(slideIndex < 2 ? slideIndex +1 : 0)
-        }
-    };*/
+  const [slideIndex, setSlideIndex] = useState(0)
+  const [sliders, setSliders] = useState([]);
+
+  useEffect(() => {
+    const getSliders = async () => {
+      try {
+        const res = await axios.get("https://cafcintos-production.up.railway.app/api/sliders");
+        setSliders(res.data);
+      } catch {}
+    };
+    getSliders();
+  }, []);
+
+  const handleClick = (direction) => {
+    if(direction==="left"){
+        setSlideIndex(slideIndex > 0 ? slideIndex -1 : 2)
+    }else{
+        setSlideIndex(slideIndex < 2 ? slideIndex +1 : 0)
+    }
+  };
 
   return (
     <Container>
-      <Wrapper /*slideIndex={slideIndex}*/>
-        {sliderItems.map((item) => (
-            <Slide bg={item.bg} key={item.id}>
-                <ImgContainer>
-                    <Image src={item.img}/>
-                </ImgContainer>
-                <InfoContainer>
-                    <Title>{item.title}</Title>
-                    <Desc>{item.desc}</Desc>
-                    <Link to={`/products/${item.cat}`}>
-                    <Button>COMPRA AHORA</Button>
-                    </Link>
-                </InfoContainer>
-            </Slide>
-        ))}
-      </Wrapper>
+        <Arrow direction="left" onClick={()=>handleClick("left")}>
+           <ArrowBackIosRounded/>
+        </Arrow>
+        <Wrapper slideIndex={slideIndex}>
+            {sliders.map((item) => (
+                <Slide bg={item.bg} key={item.id}>
+                    <ImgContainer>
+                        <Image src={item.img}/>
+                    </ImgContainer>
+                    <InfoContainer>
+                        <Title>{item.title}</Title>
+                        <Desc>{item.desc}</Desc>
+                        <Link to={`/products/${item.cat}`}>
+                        <Button>COMPRA AHORA</Button>
+                        </Link>
+                    </InfoContainer>
+                </Slide>
+            ))}
+            {sliders.map((item) => (
+                <Slide bg={item.bg} key={item.id}>
+                    <ImgContainer>
+                        <Image src={item.img}/>
+                    </ImgContainer>
+                    <InfoContainer>
+                        <Title>{item.title}</Title>
+                        <Desc>{item.desc}</Desc>
+                        <Link to={`/products/${item.cat}`} style={{ position:"sticky", left: 950}}>
+                        <Button>COMPRA AHORA</Button>
+                        </Link>
+                    </InfoContainer>
+                </Slide>
+            ))}
+            {sliders.map((item) => (
+                <Slide bg={item.bg} key={item.id}>
+                    <ImgContainer>
+                        <Image src={item.img}/>
+                    </ImgContainer>
+                    <InfoContainer>
+                        <Title>{item.title}</Title>
+                        <Desc>{item.desc}</Desc>
+                        <Link to={`/products/${item.cat}`} style={{ position:"sticky", left: 950}}>
+                        <Button>COMPRA AHORA</Button>
+                        </Link>
+                    </InfoContainer>
+                </Slide>
+            ))}
+        </Wrapper>
+        <Arrow direction="right" onClick={()=>handleClick("right")}>
+           <ArrowForwardIosRounded/>
+        </Arrow>
     </Container>
-  )//return
+  )
 }
 
 export default Slider

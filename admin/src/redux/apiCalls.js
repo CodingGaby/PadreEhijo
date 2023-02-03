@@ -15,6 +15,17 @@ import {
   addProductSuccess,
 } from "./productRedux";
 import {
+  getSliderFailure,
+  getSliderStart,
+  getSliderSuccess,
+  updateSliderFailure,
+  updateSliderStart,
+  updateSliderSuccess,
+  addSliderFailure,
+  addSliderStart,
+  addSliderSuccess,
+} from "./sliderRedux";
+import {
   getUserStart,
   getUserSuccess,
   getUserFailure,
@@ -48,6 +59,16 @@ export const getProducts = async (dispatch) => {
     dispatch(getProductSuccess(res.data));
   } catch (err) {
     dispatch(getProductFailure());
+  }
+};
+
+export const getSliders = async (dispatch) => {
+  dispatch(getSliderStart());
+  try {
+    const res = await publicRequest.get("/sliders");
+    dispatch(getSliderSuccess(res.data));
+  } catch (err) {
+    dispatch(getSliderFailure());
   }
 };
 
@@ -111,6 +132,18 @@ export const updateProduct = async (id, product, dispatch) => {
     dispatch(updateProductFailure());
   }
 };
+
+export const updateSlider = async (id, slider, dispatch) => {
+  dispatch(updateSliderStart());
+  try {
+    // update
+    const res = await userRequest.put(`/sliders/${id}`, slider);
+    dispatch(updateSliderSuccess(res.slider, res.id));
+  } catch (err) {
+    dispatch(updateSliderFailure());
+  }
+};
+
 export const addProduct = async (product, dispatch) => {
   dispatch(addProductStart());
   try {
@@ -118,5 +151,15 @@ export const addProduct = async (product, dispatch) => {
     dispatch(addProductSuccess(res.data));
   } catch (err) {
     dispatch(addProductFailure());
+  }
+};
+
+export const addSlider = async (slider, dispatch) => {
+  dispatch(addSliderStart());
+  try {
+    const res = await userRequest.post(`/sliders`, slider);
+    dispatch(addSliderSuccess(res.data));
+  } catch (err) {
+    dispatch(addSliderFailure());
   }
 };

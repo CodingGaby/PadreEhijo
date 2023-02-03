@@ -3,6 +3,8 @@ import userReducer from "./userRedux";
 import productReducer from "./productRedux";
 import usersReducer from "./usersRedux";
 import orderRedux from "./orderRedux";
+import sliderRedux from "./sliderRedux";
+
 import {
   persistStore,
   persistReducer,
@@ -26,6 +28,7 @@ const rootReducer = combineReducers({
   product: productReducer,
   users: usersReducer,
   order: orderRedux,
+  slider: sliderRedux
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { addProduct } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
+import axios from "axios";
 
 const Container = styled.div``;
 
@@ -127,7 +128,7 @@ const Button = styled.button`
 const Product = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
@@ -136,9 +137,9 @@ const Product = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await publicRequest.get("/products/find/" + id);
+        const res = await axios.get("https://cafcintos-production.up.railway.app/api/products/find/" + id);
         setProduct(res.data);
-      } catch {}
+      } catch (err) {}
     };
     getProduct();
   }, [id]);
