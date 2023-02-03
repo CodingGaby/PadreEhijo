@@ -3,7 +3,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components"
-import { publicRequest } from "../requestMethods";
 import { mobile } from "../responsive";
 
 const Container = styled.div`
