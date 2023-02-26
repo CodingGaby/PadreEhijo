@@ -30,8 +30,8 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  border-radius: 10px;
-  margin: 2px 0px;
+  border-radius: 20px;
+  margin: 5px 0px;
 }
 
 .notlink {
@@ -52,7 +52,7 @@
 .sidebarListItem:hover {
   background-color: rgb(157, 140, 247);
   color: white;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .sidebarIcon{

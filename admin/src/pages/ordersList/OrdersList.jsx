@@ -63,7 +63,7 @@ export default function ProductList() {
         return (
           <>
             <Link to={"/order/" + params.row._id}>
-              <button className="productListEdit">Edit</button>
+              <button className="productListEdit">View</button>
             </Link>
             <DeleteOutline
               className="productListDelete"

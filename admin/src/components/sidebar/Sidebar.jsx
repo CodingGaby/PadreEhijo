@@ -3,6 +3,7 @@ import {
   PermIdentity,
   Storefront,
   AttachMoney,
+  SlideshowOutlined
 } from "@material-ui/icons";
 import { NavLink } from "react-router-dom";
 
@@ -33,7 +34,7 @@ export default function Sidebar() {
             </li>
             <li className="sidebarListItem" >
               <NavLink to="/sliders" className="link">
-                <AttachMoney className="sidebarIcon" />
+                <SlideshowOutlined className="sidebarIcon" />
                 Sliders
               </NavLink>
             </li>
