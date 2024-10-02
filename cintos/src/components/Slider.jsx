@@ -89,7 +89,7 @@ const Slider = () => {
   useEffect(() => {
     const getSliders = async () => {
       try {
-        const res = await axios.get("https://cafcintos-production.up.railway.app/api/sliders");
+        const res = await axios.get("https://padree-hijo-api.vercel.app/api/sliders");
         setSliders(res.data);
       } catch {}
     };

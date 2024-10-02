@@ -136,7 +136,7 @@ const Product = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get("https://cafcintos-production.up.railway.app/api/products/find/" + id);
+        const res = await axios.get("https://padree-hijo-api.vercel.app/api/products/find/" + id);
         setProduct(res.data);
       } catch (err) {}
     };

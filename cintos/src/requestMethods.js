@@ -1,15 +1,15 @@
 import axios from "axios";
 
-const BASE_URL = "https://cafcintos-production.up.railway.app/api/";
+const BASE_URL = "https://padree-hijo-api.vercel.app/api/";
 const user = JSON.parse(localStorage.getItem("persist:root"))?.user;
 const currentUser = user && JSON.parse(user).currentUser;
 const TOKEN = currentUser?.accessToken;
 
 export const publicRequest = axios.create({
-    baseURL: BASE_URL,
+  baseURL: BASE_URL,
 });
 
 export const userRequest = axios.create({
-    baseURL: BASE_URL,
-    header: { token: `Bearer ${TOKEN}` },
+  baseURL: BASE_URL,
+  header: { token: `Bearer ${TOKEN}` },
 });
